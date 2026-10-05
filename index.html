@@ -463,6 +463,8 @@
       object-fit: contain;
 
       filter:
+        brightness(1)
+        saturate(1)
         drop-shadow(
           0 30px 46px
           rgba(54, 34, 18, 0.13)
@@ -541,6 +543,7 @@
     ========================================================= */
 
     .region {
+      -webkit-tap-highlight-color: transparent;
       position: absolute;
 
       z-index: 12;
@@ -698,150 +701,334 @@
     }
 
     /* =========================================================
-       CARTOON MARTHA GUIDE
+       CARTOON MARTHA: A CHARACTER THAT LIVES ON THE PAGE
+       actor  = zero-size anchor at her feet (moved by script)
+       rig    = bob / stretch / hop animations, pivots on her feet
+       faces  = left / right flip
     ========================================================= */
 
-    .guide-zone {
+    :root {
+      --H: clamp(200px, 36vh, 360px);   /* her height */
+      --floor: clamp(24px, 5vh, 64px);  /* gap between her feet and screen bottom */
+    }
+
+    .sr-only {
       position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
 
-      left: clamp(22px, 4vw, 62px);
-      bottom: clamp(28px, 6vh, 74px);
-
+    #stage {
+      position: absolute;
+      inset: 0;
       z-index: 25;
-
-      width: min(33vw, 370px);
-      min-width: 260px;
+      pointer-events: none;
+      overflow: hidden;
     }
 
-    .guide-image {
-      position: relative;
-
-      width: min(18vw, 220px);
-      min-width: 150px;
-
-      transform-origin: 50% 95%;
-
-      animation:
-        guideIdleFloat 4.6s
-        ease-in-out
-        infinite;
-
-      transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
-    }
-
-    .guide-image.talking {
-      animation:
-        guideTalking 1.1s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes guideIdleFloat {
-      0%,
-      100% {
-        transform:
-          translateY(0)
-          rotate(-0.4deg);
-      }
-
-      50% {
-        transform:
-          translateY(-7px)
-          rotate(0.5deg);
-      }
-    }
-
-    @keyframes guideTalking {
-      0%,
-      100% {
-        transform:
-          translateY(0)
-          scale(1)
-          rotate(-0.3deg);
-      }
-
-      35% {
-        transform:
-          translateY(-3px)
-          scale(1.012, 0.99)
-          rotate(0.25deg);
-      }
-
-      70% {
-        transform:
-          translateY(-1px)
-          scale(0.998, 1.012)
-          rotate(-0.1deg);
-      }
-    }
-
-    .speech-bubble {
+    #actor {
       position: absolute;
-
-      left: min(16vw, 185px);
-      bottom: min(18vw, 205px);
-
-      min-width: 225px;
-      max-width: 330px;
-
-      padding: 17px 20px;
-
-      border:
-        1px solid
-        rgba(48, 40, 34, 0.12);
-
-      border-radius:
-        24px
-        24px
-        24px
-        5px;
-
-      background:
-        rgba(
-          255,
-          252,
-          247,
-          0.92
-        );
-
-      box-shadow:
-        0 18px 50px
-        rgba(66, 48, 31, 0.12);
-
-      backdrop-filter:
-        blur(12px);
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
-      font-size:
-        clamp(
-          20px,
-          2vw,
-          28px
-        );
-
-      font-weight: 500;
-      line-height: 1.08;
+      left: 0;
+      bottom: var(--floor);
+      width: 0;
+      height: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      will-change: transform;
     }
 
-    .speech-bubble small {
+    #actor.ready {
+      opacity: 1;
+    }
+
+    #actor.away {
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+
+    .shadow {
+      position: absolute;
+      left: 0;
+      bottom: calc(var(--H) * -0.02);
+      width: calc(var(--H) * 0.62);
+      height: calc(var(--H) * 0.07);
+      margin-left: calc(var(--H) * -0.31);
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(52, 36, 24, 0.30),
+        rgba(52, 36, 24, 0.12) 48%,
+        transparent 72%
+      );
+      filter: blur(2px);
+    }
+
+    #rig {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      transform-origin: 0 100%;
+    }
+
+    #faces {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .sprite {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      max-width: none;
+      width: auto;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      height: calc(var(--H) * var(--sh));
+      margin-left: calc(var(--H) * var(--sx));
+    }
+
+    .sprite.on {
+      opacity: 1;
+    }
+
+    .sprite[data-pose="welcome"] { --sh: 1.0; --sx: -0.2216; }
+    .sprite[data-pose="pointing"] { --sh: 0.9748; --sx: -0.2327; }
+    .sprite[data-pose="explainer"] { --sh: 1.0014; --sx: -0.194; }
+    .sprite[data-pose="frustrated"] { --sh: 0.9635; --sx: -0.3335; }
+
+    /* stride: two bounces per cycle, a little sway, shadow breathes with it */
+    #rig.walking {
+      animation: step 0.92s ease-in-out infinite;
+    }
+
+    #actor.walking .shadow {
+      animation: shadowStep 0.92s ease-in-out infinite;
+    }
+
+    @keyframes step {
+      0%   { transform: translateY(0) rotate(-1.7deg); }
+      25%  { transform: translateY(calc(var(--H) * -0.026)) rotate(0deg) scale(0.996, 1.01); }
+      50%  { transform: translateY(0) rotate(1.7deg); }
+      75%  { transform: translateY(calc(var(--H) * -0.026)) rotate(0deg) scale(0.996, 1.01); }
+      100% { transform: translateY(0) rotate(-1.7deg); }
+    }
+
+    @keyframes shadowStep {
+      0%, 50%, 100% { transform: scale(1); opacity: 1; }
+      25%, 75%      { transform: scale(0.88); opacity: 0.8; }
+    }
+
+    #rig.hop {
+      animation: hop 0.62s ease-in-out 3;
+    }
+
+    @keyframes hop {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      35%      { transform: translateY(calc(var(--H) * -0.03)) rotate(-1.2deg); }
+      70%      { transform: translateY(0) rotate(1deg) scale(1.01, 0.985); }
+    }
+
+    /* stretch up, hold, slump */
+    #rig.yawn {
+      animation: yawn 3.2s ease-in-out forwards;
+    }
+
+    @keyframes yawn {
+      0%   { transform: scale(1, 1) rotate(0deg); }
+      34%  { transform: scale(0.99, 1.05) rotate(0.6deg); }
+      62%  { transform: scale(0.99, 1.05) rotate(0.6deg); }
+      100% { transform: scale(1.02, 0.955) rotate(-2.6deg); }
+    }
+
+    /* speech bubble travels with her */
+    #bubble {
+      position: absolute;
+      left: calc(var(--H) * 0.2);
+      bottom: calc(var(--H) * 0.76);
+      width: max-content;
+      min-width: 150px;
+      max-width: min(62vw, 330px);
+      padding: 15px 19px;
+      border: 1px solid rgba(48, 40, 34, 0.12);
+      border-radius: 24px 24px 24px 5px;
+      background: rgba(255, 252, 247, 0.94);
+      box-shadow: 0 18px 50px rgba(66, 48, 31, 0.12);
+      backdrop-filter: blur(12px);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(19px, 1.9vw, 27px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink);
+      opacity: 0;
+      transform: translateY(6px) scale(0.96);
+      transform-origin: 0 100%;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    #bubble.left {
+      left: auto;
+      right: calc(var(--H) * 0.2);
+      border-radius: 24px 24px 5px 24px;
+      transform-origin: 100% 100%;
+    }
+
+    #bubble.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    #bubble small {
       display: block;
-
       margin-top: 9px;
-
       color: #8c7d70;
-
       font-family: "Inter", sans-serif;
       font-size: 8px;
       font-weight: 500;
       line-height: 1.4;
-
       letter-spacing: 0.13em;
       text-transform: uppercase;
+    }
+
+    /* region lights up when she points at it */
+    .region.flash::before { opacity: 0.95; transform: scale(1.2); }
+    .region.flash::after  { opacity: 0.7;  transform: scale(1.1); }
+    .region.flash .region-label { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+
+    /* =========================================================
+       NIGHT: she falls asleep, the room goes dark, only the
+       brain lights stay on. Tap anywhere to wake her.
+    ========================================================= */
+
+    #night {
+      position: absolute;
+      inset: 0;
+      z-index: 35;
+      opacity: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 68% 48%, rgba(26, 24, 36, 0.94), rgba(4, 5, 9, 0.985) 72%);
+      transition: opacity 2.6s ease;
+    }
+
+    .night-on #night {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* the brain climbs above the dark so its lights stay on */
+    .night-on .brain-board {
+      z-index: 40;
+    }
+
+    .brain-image {
+      transition: filter 2.4s ease;
+    }
+
+    .night-on .brain-image {
+      filter: brightness(0.16) saturate(0.55) drop-shadow(0 30px 46px rgba(0, 0, 0, 0));
+    }
+
+    .night-on .brain-current {
+      opacity: 1;
+    }
+
+    .night-on .region::before {
+      opacity: 0.95;
+      filter: blur(34px);
+    }
+
+    .night-on .region::after {
+      opacity: 0.55;
+    }
+
+    .night-on .region-label {
+      opacity: 0.95;
+      color: #fff;
+    }
+
+    .night-on .main-brand,
+    .night-on .mind-map-label {
+      opacity: 0.25;
+      transition: opacity 2s ease;
+    }
+
+    #bed {
+      position: absolute;
+      left: clamp(10px, 3vw, 52px);
+      bottom: clamp(14px, 4vh, 48px);
+      z-index: 42;
+      width: min(34vw, 400px);
+      min-width: 230px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2.2s ease 0.9s;
+    }
+
+    #bed img {
+      width: 100%;
+      -webkit-mask-image:
+        linear-gradient(to right, transparent 0, #000 11%, #000 89%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
+      mask-image:
+        linear-gradient(to right, transparent 0, #000 11%, #000 89%, transparent 100%),
+        linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
+      filter: brightness(0.72) saturate(0.85);
+    }
+
+    .night-on #bed {
+      opacity: 1;
+    }
+
+    #bed .z {
+      position: absolute;
+      left: 62%;
+      top: 22%;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(22px, 2.4vw, 34px);
+      color: rgba(255, 255, 255, 0.78);
+      opacity: 0;
+      animation: zFloat 3.4s ease-in-out infinite;
+    }
+
+    #bed .z:nth-of-type(2) { animation-delay: 1.1s; left: 66%; }
+    #bed .z:nth-of-type(3) { animation-delay: 2.2s; left: 70%; }
+
+    @keyframes zFloat {
+      0%   { opacity: 0;    transform: translate(0, 0) scale(0.7); }
+      20%  { opacity: 0.9; }
+      100% { opacity: 0;    transform: translate(26px, -78px) scale(1.3); }
+    }
+
+    #wakeHint {
+      position: absolute;
+      left: 50%;
+      bottom: clamp(14px, 3vh, 30px);
+      z-index: 43;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.6s ease 3.5s;
+    }
+
+    .night-on #wakeHint {
+      opacity: 1;
     }
 
     /* =========================================================
@@ -1061,11 +1248,17 @@
 
     @media (max-width: 780px) {
 
-      .brain-board {
-        width: 94vw;
+      :root {
+        --H: clamp(170px, 27vh, 250px);
+        --floor: 22px;
+      }
 
-        right: -19vw;
-        top: 45%;
+      /* the brain used to hang 19vw off the right edge, which clipped
+         the Portfolio region. Keep the whole board on screen. */
+      .brain-board {
+        width: 100vw;
+        right: 0;
+        top: 44%;
       }
 
       .main-brand p,
@@ -1073,35 +1266,20 @@
         font-size: 7px;
       }
 
-      .guide-zone {
-        left: 16px;
-        bottom: 18px;
-
-        width: 44vw;
-        min-width: 180px;
-      }
-
-      .guide-image {
-        width: 33vw;
-        min-width: 128px;
-      }
-
-      .speech-bubble {
-        left: 25vw;
-        bottom: 28vw;
-
-        min-width: 165px;
-        max-width: 48vw;
-
-        padding:
-          13px
-          15px;
-
+      #bubble {
+        min-width: 140px;
+        max-width: 54vw;
+        padding: 12px 14px;
         font-size: 18px;
       }
 
-      .speech-bubble small {
+      #bubble small {
         font-size: 7px;
+      }
+
+      #bed {
+        width: 66vw;
+        min-width: 0;
       }
 
       .card {
@@ -1321,33 +1499,50 @@
     </section>
 
 
-    <!-- CARTOON MARTHA -->
+    <!-- CARTOON MARTHA: walks, waves, points, falls asleep -->
 
-    <aside
-      class="guide-zone"
-      aria-live="polite"
-    >
+    <div id="stage" aria-hidden="true">
 
-      <img
-        class="guide-image talking"
-        id="guideImage"
-        src="welcome-martha.png"
-        alt="Cartoon Martha"
-      />
+      <div id="actor">
 
-      <div class="speech-bubble">
+        <div class="shadow"></div>
 
-        <span id="bubbleText">
-          Choose your Martha
-        </span>
+        <div id="rig">
 
-        <small>
-          Tap a glowing part of the brain
-        </small>
+          <div id="faces">
+            <img class="sprite on" data-pose="welcome"    src="sprites/welcome.png"    alt="" />
+            <img class="sprite"    data-pose="pointing"   src="sprites/pointing.png"   alt="" />
+            <img class="sprite"    data-pose="explainer"  src="sprites/explainer.png"  alt="" />
+            <img class="sprite"    data-pose="frustrated" src="sprites/frustrated.png" alt="" />
+          </div>
+
+        </div>
+
+        <div id="bubble">
+          <span id="bubbleText">Choose your Martha</span>
+          <small id="bubbleSmall">Tap a glowing part of the brain</small>
+        </div>
 
       </div>
 
-    </aside>
+    </div>
+
+    <p class="sr-only">
+      Choose your Martha. Select a glowing part of the brain:
+      CRA, Atrium or Portfolio.
+    </p>
+
+    <!-- night mode -->
+    <div id="night"></div>
+
+    <div id="bed" aria-hidden="true">
+      <img src="sleep-martha.png" alt="" />
+      <span class="z">z</span>
+      <span class="z">z</span>
+      <span class="z">z</span>
+    </div>
+
+    <div id="wakeHint" aria-hidden="true">Tap anywhere to wake her</div>
 
 
     <div class="mind-map-label">
@@ -1441,11 +1636,19 @@
       document.getElementById("skipIntro");
 
 
+    let entered = false;
+
     function enterExperience() {
+
+      if (entered) return;
+      entered = true;
 
       intro.classList.add("done");
 
       experience.classList.add("show");
+
+      /* let the page fade in first, then she walks on */
+      setTimeout(beginLife, 900);
 
     }
 
@@ -1620,7 +1823,7 @@
                 "false"
               );
 
-            resetIdle();
+            quietForCard();
 
           }
         );
@@ -1640,7 +1843,8 @@
           "true"
         );
 
-      resetIdle();
+      say("Choose your Martha", "Tap a glowing part of the brain");
+      scheduleIdle();
 
     }
 
@@ -1685,213 +1889,395 @@
 
 
     /* ======================================================
-       CARTOON MARTHA
-       IDLE LOOP
+       CARTOON MARTHA: LIFE
+       walk, wave, point at each part of the brain, get tired,
+       yawn, fall asleep. The room goes dark; only the brain
+       lights stay on. Any tap wakes her and ends the show.
     ====================================================== */
 
-    const guideImage =
-      document.getElementById(
-        "guideImage"
-      );
+    const $ = (sel) => document.querySelector(sel);
 
-    const bubbleText =
-      document.getElementById(
-        "bubbleText"
-      );
+    const actor = $("#actor");
+    const rig = $("#rig");
+    const faces = $("#faces");
+    const bubble = $("#bubble");
+    const bubbleText = $("#bubbleText");
+    const bubbleSmall = $("#bubbleSmall");
 
+    const sprites = {};
+    document.querySelectorAll(".sprite").forEach((el) => {
+      sprites[el.dataset.pose] = el;
+    });
 
-    let idleTimer;
+    const reduceMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    let idleLoop;
+    const CANCEL = Symbol("cancel");
 
-    let idleIndex = 0;
+    let token = 0;          /* bumping this cancels the running show */
+    let running = false;
+    let asleep = false;
+    let anim = null;        /* the walk currently playing */
+    let idleTimer = null;
+    let wakeResolve = null;
 
+    const pos = { x: 0, y: 0, s: 1, dir: 1 };
 
-    const idleStates = [
+    const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
 
-      {
-        image:
-          "thinking-martha.png",
+    /* her height in px (the welcome sprite is exactly --H tall) */
+    const H = () => sprites.welcome.offsetHeight || 300;
 
-        text:
-          "Hmm..."
-      },
+    const homeX = () => H() * 0.4 + 14;
 
+    function place(x, y, s) {
+      pos.x = x;
+      pos.y = y;
+      pos.s = s;
+      actor.style.transform =
+        "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")";
+    }
 
-      {
-        image:
-          "frustrated-martha.png",
+    function face(dir) {
+      pos.dir = dir;
+      faces.style.transform = dir < 0 ? "scaleX(-1)" : "";
+    }
 
-        text:
-          "Wahala o. God abeg."
-      },
+    function pose(name) {
+      Object.keys(sprites).forEach((k) => {
+        sprites[k].classList.toggle("on", k === name);
+      });
+    }
 
+    function say(text, small) {
 
-      {
-        image:
-          "sleep-martha.png",
-
-        text:
-          "body no be firewood"
-      },
-
-
-      {
-        image:
-          "welcome-martha.png",
-
-        text:
-          "Choose your Martha"
+      if (!text) {
+        bubble.classList.remove("show");
+        return;
       }
 
-    ];
+      bubbleText.textContent = text;
+      bubbleSmall.textContent = small || "";
+      bubbleSmall.style.display = small ? "block" : "none";
 
+      /* open the bubble toward whichever side has room */
+      bubble.classList.remove("left");
+      const need = bubble.offsetWidth + H() * 0.2 + 16;
+      if (pos.x + need > window.innerWidth) {
+        bubble.classList.add("left");
+      }
 
-    function setGuide(state) {
+      bubble.classList.add("show");
+    }
 
-      guideImage.style.opacity =
-        "0";
+    function wait(ms, t) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => (t === token ? resolve() : reject(CANCEL)), ms);
+      });
+    }
 
-      guideImage.style.transform =
-        "translateY(7px) scale(.985)";
+    function stopWalk() {
 
+      if (anim) {
+        const m = new DOMMatrix(getComputedStyle(actor).transform);
+        place(m.e, m.f, m.a);
+        anim.cancel();
+        anim = null;
+      }
 
-      setTimeout(
-        () => {
-
-          guideImage.src =
-            state.image;
-
-          bubbleText.textContent =
-            state.text;
-
-          guideImage.style.opacity =
-            "1";
-
-          guideImage.style.transform =
-            "";
-
-          if (
-            state.image ===
-            "sleep-martha.png"
-          ) {
-
-            guideImage
-              .classList
-              .remove("talking");
-
-          }
-
-          else {
-
-            guideImage
-              .classList
-              .add("talking");
-
-          }
-
-        },
-        320
-      );
+      rig.classList.remove("walking", "hop", "yawn");
+      actor.classList.remove("walking");
 
     }
 
+    async function walkTo(t, x, y, s) {
 
-    function beginIdleLoop() {
+      y = y || 0;
+      s = s || 1;
 
-      clearInterval(idleLoop);
+      const from = { x: pos.x, y: pos.y, s: pos.s };
+      const dist = Math.hypot(x - from.x, (y - from.y) * 1.4);
 
-      idleIndex = 0;
-
-      setGuide(
-        idleStates[idleIndex]
-      );
-
-
-      idleLoop =
-        setInterval(
-          () => {
-
-            idleIndex =
-              (
-                idleIndex + 1
-              )
-              %
-              idleStates.length;
-
-            setGuide(
-              idleStates[
-                idleIndex
-              ]
-            );
-
-          },
-          10000
-        );
-
-    }
-
-
-    function resetIdle() {
-
-      clearTimeout(
-        idleTimer
-      );
-
-      clearInterval(
-        idleLoop
-      );
-
-
-      if (
-        !cardOverlay
-          .classList
-          .contains("open")
-      ) {
-
-        setGuide({
-
-          image:
-            "welcome-martha.png",
-
-          text:
-            "Choose your Martha"
-
-        });
-
-
-        idleTimer =
-          setTimeout(
-            beginIdleLoop,
-            30000
-          );
-
+      if (dist < 6) {
+        place(x, y, s);
+        return;
       }
 
+      const duration = Math.max(800, (dist / (H() * 0.6)) * 1000);
+
+      face(x >= from.x ? 1 : -1);
+      pose("explainer");
+
+      rig.classList.add("walking");
+      actor.classList.add("walking");
+
+      anim = actor.animate(
+        [
+          { transform: "translate3d(" + from.x + "px," + from.y + "px,0) scale(" + from.s + ")" },
+          { transform: "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")" }
+        ],
+        { duration: duration, easing: "cubic-bezier(.4,.05,.45,1)", fill: "forwards" }
+      );
+
+      try {
+        await anim.finished;
+      } catch (e) {
+        throw CANCEL;
+      }
+
+      place(x, y, s);
+      anim.cancel();
+      anim = null;
+
+      rig.classList.remove("walking");
+      actor.classList.remove("walking");
+
+      if (t !== token) throw CANCEL;
     }
 
+    function regionPoint(key) {
+      const r = $(".region-" + key).getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
 
-    [
-      "pointerdown",
-      "mousemove",
-      "keydown",
-      "touchstart"
-    ].forEach(
-      (eventName) => {
+    function flash(key, on) {
+      $(".region-" + key).classList.toggle("flash", on);
+    }
 
-        window.addEventListener(
-          eventName,
-          resetIdle,
-          {
-            passive: true
-          }
-        );
+    function clearFlash() {
+      document.querySelectorAll(".region.flash").forEach((r) => r.classList.remove("flash"));
+    }
+
+    async function playOnce(cls, ms, t, keep) {
+      rig.classList.remove(cls);
+      void rig.offsetWidth;
+      rig.classList.add(cls);
+      await wait(ms, t);
+      if (!keep) rig.classList.remove(cls);
+    }
+
+    function setNight(on) {
+      document.body.classList.toggle("night-on", on);
+      asleep = on;
+    }
+
+    function goHome(withPrompt) {
+      rig.classList.remove("walking", "hop", "yawn");
+      pose("welcome");
+      face(1);
+      place(homeX(), 0, 1);
+      if (withPrompt) {
+        say("Choose your Martha", "Tap a glowing part of the brain");
+      } else {
+        say(null);
+      }
+    }
+
+    /* ---------- the show ---------- */
+
+    async function show(fromOffscreen) {
+
+      cancelShow();
+
+      const t = ++token;
+      running = true;
+
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const h = H();
+
+      try {
+
+        /* 1. walk on from the left */
+        if (fromOffscreen) {
+          actor.classList.add("ready");
+          place(-h * 0.7, 0, 1);
+          face(1);
+          pose("explainer");
+        }
+
+        say(null);
+        await walkTo(t, homeX(), 0, 1);
+
+        /* 2. wave hello */
+        face(1);
+        pose("welcome");
+        say("Choose your Martha", "Tap a glowing part of the brain");
+        await playOnce("hop", 1900, t);
+        await wait(1600, t);
+
+        /* 3. point at each part of the brain, walking up and down the room */
+        const tour = [
+          { key: "cra",       label: "CRA",       y: -0.05 * vh, s: 0.96 },
+          { key: "atrium",    label: "Atrium",    y: -0.12 * vh, s: 0.92 },
+          { key: "portfolio", label: "Portfolio", y:  0,         s: 1.0  }
+        ];
+
+        for (const stop of tour) {
+
+          const p = regionPoint(stop.key);
+          const x = clamp(p.x - h * 0.5, h * 0.4 + 14, vw - h * 0.62 - 12);
+
+          say(null);
+          await walkTo(t, x, stop.y, stop.s);
+
+          face(1);
+          pose("pointing");
+          flash(stop.key, true);
+          say(stop.label);
+          await wait(2300, t);
+          flash(stop.key, false);
+        }
+
+        /* 4. wander back, getting tired */
+        say(null);
+        await walkTo(t, homeX() + h * 0.15, 0.0, 1);
+
+        face(1);
+        pose("frustrated");
+        say("Wahala o. God abeg.");
+        await wait(2600, t);
+
+        /* 5. yawn */
+        say("Hmmmm...");
+        await playOnce("yawn", 3200, t, true);
+        say(null);
+        await wait(500, t);
+
+        /* 6. sleep: the room goes dark, only the brain lights stay on */
+        actor.classList.add("away");
+        setNight(true);
+
+        await new Promise((resolve) => { wakeResolve = resolve; });
+        wakeResolve = null;
+        if (t !== token) throw CANCEL;
+
+        /* 7. wake up */
+        await wakeUp(t);
+
+      } catch (e) {
+
+        if (e !== CANCEL) throw e;
+
+      } finally {
+
+        if (t === token) {
+          running = false;
+          scheduleIdle();
+        }
 
       }
-    );
+    }
 
+    async function wakeUp(t) {
 
-    resetIdle();
+      setNight(false);
+
+      /* let the lights come back up before she reappears */
+      await wait(1500, t);
+
+      goHome(false);
+      actor.classList.remove("away");
+
+      await wait(700, t);
+      say("Choose your Martha", "Tap a glowing part of the brain");
+    }
+
+    /* stop whatever she is doing and get out of the way */
+    function cancelShow() {
+
+      token++;
+
+      stopWalk();
+      clearFlash();
+
+      if (wakeResolve) {
+        wakeResolve();
+        wakeResolve = null;
+      }
+
+      if (asleep) {
+        setNight(false);
+      }
+
+      actor.classList.remove("away");
+
+      running = false;
+    }
+
+    /* the visitor did something: she stops and waits for them */
+    function attend() {
+
+      if (asleep) {
+
+        /* wake gently; the show finishes the wake-up itself */
+        if (wakeResolve) wakeResolve();
+        return;
+      }
+
+      if (running) {
+        cancelShow();
+        pose("welcome");
+        face(1);
+        say("Choose your Martha", "Tap a glowing part of the brain");
+      }
+
+      scheduleIdle();
+    }
+
+    function scheduleIdle() {
+
+      clearTimeout(idleTimer);
+
+      if (reduceMotion) return;
+
+      idleTimer = setTimeout(() => {
+
+        if (cardOverlay.classList.contains("open")) {
+          scheduleIdle();
+          return;
+        }
+
+        show(false);
+
+      }, 45000);
+    }
+
+    function beginLife() {
+
+      if (reduceMotion) {
+        actor.classList.add("ready");
+        goHome(true);
+        return;
+      }
+
+      show(true);
+    }
+
+    /* any deliberate input ends the show; hover alone does not */
+    ["pointerdown", "keydown"].forEach((name) => {
+      window.addEventListener(name, attend, { passive: true });
+    });
+
+    /* keep her on screen if the window changes shape */
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (!entered) return;
+        cancelShow();
+        goHome(true);
+        actor.classList.add("ready");
+        scheduleIdle();
+      }, 250);
+    });
+
+    /* a card opening should also quiet her */
+    function quietForCard() {
+      cancelShow();
+      pose("welcome");
+      say(null);
+    }
 
 
     /* ======================================================
@@ -1914,6 +2300,11 @@
     window.addEventListener(
       "touchmove",
       (event) => {
+
+        /* the card scrolls on small screens; everything else stays put */
+        if (event.target.closest && event.target.closest(".card")) {
+          return;
+        }
 
         event.preventDefault();
 
