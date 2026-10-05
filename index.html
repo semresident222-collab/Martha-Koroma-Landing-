@@ -4,12 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Martha Wuya Koroma</title>
+  <title>Martha Wuya Koroma | Medicine, Clinical Research & Systems</title>
 
   <meta
     name="description"
-    content="Martha Wuya Koroma — medicine, research, systems and the person behind the work."
+    content="Martha Wuya Koroma — medicine, clinical research, systems thinking, writing and professional work. Explore her CRA Portfolio, Atrium and personal portfolio."
   />
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <link rel="canonical" href="https://www.marthakoroma.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Martha Wuya Koroma | Medicine, Research, Systems">
+  <meta property="og:description" content="Explore Martha Wuya Koroma's clinical research portfolio, Atrium, and personal professional portfolio.">
+  <meta property="og:url" content="https://www.marthakoroma.com/">
+  <meta property="og:site_name" content="Martha Wuya Koroma">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Martha Wuya Koroma | Medicine, Research, Systems">
+  <meta name="twitter:description" content="Clinical research, systems thinking, writing, fashion, and professional trajectory — all in one place.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +33,52 @@
     rel="stylesheet"
   />
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.marthakoroma.com/#person",
+    "name": "Martha Wuya Koroma",
+    "url": "https://www.marthakoroma.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/martha-koroma-67a28b191",
+      "https://orcid.org/0000-0003-4152-3863",
+      "https://github.com/Martha-Wuya-Koroma",
+      "https://cra.marthakoroma.com",
+      "https://atrium.marthakoroma.com",
+      "https://portfolio.marthakoroma.com",
+      "https://metavoxa.com"
+    ],
+    "knowsAbout": [
+      "Clinical Research",
+      "Medicine",
+      "Clinical Trial Design",
+      "Good Clinical Practice",
+      "Research Governance",
+      "Systems Thinking",
+      "Medical Writing",
+      "Digital Health",
+      "Neurodivergence",
+      "Health Systems",
+      "Evidence Generation"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.marthakoroma.com/#website",
+    "url": "https://www.marthakoroma.com/",
+    "name": "Martha Wuya Koroma",
+    "description": "The personal web gateway of Martha Wuya Koroma, connecting her clinical research portfolio, Atrium, and professional portfolio.",
+    "publisher": {
+      "@id": "https://www.marthakoroma.com/#person"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --cra: #6da8ff;
@@ -26,6 +86,8 @@
       --portfolio: #f0d8b2;
       --ink: #181512;
       --cream: #f6f0e6;
+      --H: clamp(200px, 36vh, 360px);
+      --floor: clamp(24px, 5vh, 64px);
     }
 
     * {
@@ -41,7 +103,7 @@
 
     body {
       overflow: hidden;
-      background: #020305;
+      background: #070708;
       font-family: "Inter", sans-serif;
       color: #fff;
     }
@@ -68,28 +130,16 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-
       display: grid;
       place-items: center;
-
       overflow: hidden;
 
       background:
-        radial-gradient(
-          circle at 50% 47%,
-          rgba(32, 37, 44, 0.52),
-          transparent 29%
-        ),
-        linear-gradient(
-          180deg,
-          #010204 0%,
-          #05070a 60%,
-          #020203 100%
-        );
+        radial-gradient(circle at 50% 48%, rgba(42, 47, 55, 0.34), transparent 27%),
+        radial-gradient(circle at 50% 75%, rgba(118, 87, 58, 0.10), transparent 35%),
+        linear-gradient(180deg, #010204 0%, #06080b 60%, #020203 100%);
 
-      transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
+      transition: opacity 1.5s ease, visibility 1.5s ease;
     }
 
     #intro.done {
@@ -107,7 +157,6 @@
 
     .intro-brand h1 {
       margin: 0;
-
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(28px, 3vw, 48px);
       font-weight: 500;
@@ -116,9 +165,7 @@
 
     .intro-brand p {
       margin: 8px 0 0;
-
       color: #98a0aa;
-
       font-size: 9px;
       letter-spacing: 0.27em;
       text-transform: uppercase;
@@ -128,240 +175,158 @@
       position: absolute;
       top: clamp(20px, 4vw, 48px);
       right: clamp(20px, 4vw, 54px);
-
       z-index: 20;
-
       padding: 10px 16px;
-
-      border: 1px solid rgba(255, 255, 255, 0.26);
+      border: 1px solid rgba(255,255,255,.24);
       border-radius: 999px;
-
-      background: rgba(5, 7, 10, 0.48);
+      background: rgba(4,6,8,.42);
       color: #f8f5ef;
-
       backdrop-filter: blur(12px);
-
-      transition:
-        background 0.3s ease,
-        transform 0.3s ease;
+      transition: background .3s ease, transform .3s ease;
     }
 
     .skip-intro:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,.09);
       transform: translateY(-1px);
     }
 
     .intro-stage {
       position: absolute;
-
       left: 50%;
       top: 50%;
-
       width: min(76vw, 780px);
       aspect-ratio: 1 / 1;
-
       transform: translate(-50%, -48%);
-
       perspective: 1600px;
     }
 
     .head-layer {
       position: absolute;
       inset: 0;
-
       width: 100%;
       height: 100%;
-
       object-fit: contain;
-
       opacity: 0;
-
       transform-origin: center center;
+      mix-blend-mode: normal;
     }
 
     #headClosed {
       opacity: 1;
-
-      filter:
-        brightness(0.12)
-        saturate(0.55);
-
+      filter: brightness(.10) saturate(.45);
       animation:
-        closedHeadEmerge 5s ease-out forwards,
-        closedHeadRotate 6.8s ease-in-out 1.2s forwards;
+        closedHeadEmerge 5.2s ease-out forwards,
+        closedHeadRotate 7s ease-in-out 1.1s forwards;
     }
 
     #headOpen {
-      filter: brightness(0.35);
-
-      animation:
-        openHeadReveal 2.8s ease-in-out 6.1s forwards;
+      filter: brightness(.30);
+      animation: openHeadReveal 2.4s ease-in-out 5.9s forwards;
     }
 
     #headOpenBrain {
-      filter: brightness(0.42);
-
-      animation:
-        openBrainReveal 3.1s ease-in-out 8s forwards;
+      filter: brightness(.36);
+      animation: openBrainReveal 2.8s ease-in-out 7.5s forwards;
     }
 
     .intro-halo {
       position: absolute;
-
       left: 50%;
       top: 49%;
-
       width: min(42vw, 460px);
       height: min(42vw, 460px);
-
       transform: translate(-50%, -50%);
-
       border-radius: 50%;
-
       background:
-        radial-gradient(
-          circle,
-          rgba(245, 222, 190, 0.18),
-          rgba(110, 168, 255, 0.06) 45%,
-          transparent 72%
-        );
-
-      filter: blur(18px);
-
+        radial-gradient(circle, rgba(245,222,190,.15), rgba(110,168,255,.04) 45%, transparent 72%);
+      filter: blur(20px);
       opacity: 0;
-
-      animation:
-        haloReveal 3.5s ease 8.5s forwards;
+      animation: haloReveal 3.2s ease 8.2s forwards;
     }
 
     .intro-line {
       position: absolute;
-
       bottom: clamp(28px, 5vh, 62px);
       left: 50%;
-
       transform: translateX(-50%);
-
       white-space: nowrap;
-
       opacity: 0;
-
-      color: rgba(255, 255, 255, 0.72);
-
+      color: rgba(255,255,255,.72);
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(18px, 2vw, 27px);
-      letter-spacing: 0.04em;
-
-      animation:
-        introTextReveal 2.5s ease 9.4s forwards;
+      font-size: clamp(18px,2vw,27px);
+      letter-spacing: .04em;
+      animation: introTextReveal 2.4s ease 9s forwards;
     }
 
     @keyframes closedHeadEmerge {
       0% {
         opacity: 0;
-        filter:
-          brightness(0.025)
-          saturate(0.35);
-        transform: scale(0.86);
+        filter: brightness(.02) saturate(.35) blur(7px);
+        transform: scale(.86);
       }
-
-      45% {
-        opacity: 0.48;
-        filter:
-          brightness(0.2)
-          saturate(0.6);
+      48% {
+        opacity: .42;
+        filter: brightness(.18) saturate(.55) blur(2px);
       }
-
       100% {
         opacity: 1;
-        filter:
-          brightness(0.62)
-          saturate(0.86);
+        filter: brightness(.58) saturate(.82) blur(0);
         transform: scale(1);
       }
     }
 
     @keyframes closedHeadRotate {
-      0% {
-        transform:
-          rotateY(-12deg)
-          rotateZ(-1deg)
-          scale(0.98);
-      }
-
-      42% {
-        transform:
-          rotateY(14deg)
-          rotateZ(0.7deg)
-          scale(1.01);
-      }
-
-      74% {
-        transform:
-          rotateY(-5deg)
-          rotateZ(-0.2deg)
-          scale(1.015);
-      }
-
-      100% {
-        transform:
-          rotateY(0deg)
-          rotateZ(0deg)
-          scale(1.02);
-      }
+      0%   { transform: rotateY(-12deg) rotateZ(-1deg) scale(.98); }
+      38%  { transform: rotateY(14deg) rotateZ(.6deg) scale(1.01); }
+      72%  { transform: rotateY(-4deg) rotateZ(-.2deg) scale(1.015); }
+      100% { transform: rotateY(0deg) rotateZ(0deg) scale(1.02); }
     }
 
     @keyframes openHeadReveal {
       0% {
         opacity: 0;
-        filter: brightness(0.25);
-        transform: scale(0.99);
+        filter: brightness(.18) blur(5px);
+        transform: scale(.99);
       }
-
-      40% {
-        opacity: 0.45;
+      45% {
+        opacity: .35;
+        filter: brightness(.45) blur(2px);
       }
-
       100% {
-        opacity: 1;
-        filter: brightness(0.82);
-        transform: scale(1.02);
+        opacity: .85;
+        filter: brightness(.72) blur(0);
+        transform: scale(1.01);
       }
     }
 
     @keyframes openBrainReveal {
       0% {
         opacity: 0;
-        transform: scale(0.98);
-        filter: brightness(0.28);
+        transform: scale(.98);
+        filter: brightness(.2) blur(4px);
       }
-
-      45% {
-        opacity: 0.7;
+      50% {
+        opacity: .65;
+        filter: brightness(.62) blur(1px);
       }
-
       100% {
         opacity: 1;
         transform: scale(1.04);
-        filter: brightness(1);
+        filter: brightness(1) blur(0);
       }
     }
 
     @keyframes haloReveal {
       to {
         opacity: 1;
-        transform:
-          translate(-50%, -50%)
-          scale(1.28);
+        transform: translate(-50%, -50%) scale(1.28);
       }
     }
 
     @keyframes introTextReveal {
       to {
         opacity: 1;
-        transform:
-          translateX(-50%)
-          translateY(-4px);
+        transform: translateX(-50%) translateY(-4px);
       }
     }
 
@@ -372,31 +337,51 @@
     #experience {
       position: fixed;
       inset: 0;
-
       z-index: 1;
-
       overflow: hidden;
-
       opacity: 0;
       visibility: hidden;
-
-      color: var(--ink);
+      color: #f4efe8;
 
       background:
-        radial-gradient(
-          circle at 68% 48%,
-          rgba(86, 72, 54, 0.11),
-          transparent 31%
-        ),
-        linear-gradient(
-          135deg,
-          #f8f3ea 0%,
-          #eee5d8 100%
-        );
+        radial-gradient(circle at 68% 46%, rgba(65,84,98,.20), transparent 24%),
+        radial-gradient(circle at 58% 30%, rgba(75,112,88,.11), transparent 28%),
+        radial-gradient(circle at 76% 63%, rgba(199,167,117,.10), transparent 28%),
+        linear-gradient(135deg, #201f20 0%, #2a2929 38%, #1d1d1e 68%, #111214 100%);
 
-      transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
+      transition: opacity 1.5s ease, visibility 1.5s ease;
+    }
+
+    #experience::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.035), transparent 2px),
+        radial-gradient(circle at 82% 28%, rgba(255,255,255,.025), transparent 2px),
+        radial-gradient(circle at 41% 77%, rgba(255,255,255,.02), transparent 2px);
+
+      background-size:
+        95px 95px,
+        130px 130px,
+        160px 160px;
+
+      opacity: .55;
+      animation: driftDust 24s linear infinite;
+    }
+
+    #experience::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,.38) 100%);
+
+      z-index: 2;
     }
 
     #experience.show {
@@ -404,87 +389,110 @@
       visibility: visible;
     }
 
+    @keyframes driftDust {
+      from { background-position: 0 0, 0 0, 0 0; }
+      to   { background-position: 130px -90px, -120px 140px, 90px -120px; }
+    }
+
     .main-brand {
       position: absolute;
-
-      top: clamp(20px, 3.4vw, 50px);
-      left: clamp(22px, 4vw, 62px);
-
+      top: clamp(20px,3.4vw,50px);
+      left: clamp(22px,4vw,62px);
       z-index: 30;
     }
 
     .main-brand h1 {
       margin: 0;
-
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(24px, 2.3vw, 38px);
+      font-size: clamp(24px,2.3vw,38px);
       font-weight: 500;
       line-height: 1;
     }
 
     .main-brand p {
       margin: 7px 0 0;
-
-      color: #7e756b;
-
+      color: #a69d94;
       font-size: 9px;
-      letter-spacing: 0.24em;
+      letter-spacing: .24em;
       text-transform: uppercase;
     }
 
     /* =========================================================
-       BRAIN
+       BRAIN STAGE
     ========================================================= */
 
     .brain-board {
       position: absolute;
-
       top: 50%;
-      right: clamp(-2vw, 2vw, 5vw);
-
-      width: min(61vw, 900px);
+      right: clamp(-2vw,2vw,5vw);
+      width: min(61vw,900px);
       aspect-ratio: 1 / 1;
-
       transform: translateY(-48%);
+      z-index: 10;
+    }
+
+    .brain-board::before {
+      content: "";
+      position: absolute;
+      left: 11%;
+      right: 8%;
+      bottom: 10%;
+      height: 18%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,.48), rgba(0,0,0,.14) 45%, transparent 72%);
+      filter: blur(18px);
+      transform: scaleX(1.08);
+      z-index: 0;
+    }
+
+    .brain-board::after {
+      content: "";
+      position: absolute;
+      inset: 11%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 26% 39%, rgba(80,137,255,.10), transparent 33%),
+        radial-gradient(circle at 53% 22%, rgba(84,180,112,.11), transparent 32%),
+        radial-gradient(circle at 71% 66%, rgba(230,202,160,.11), transparent 34%);
+      filter: blur(28px);
+      opacity: .92;
+      z-index: 0;
+      animation: ambientPulse 7s ease-in-out infinite;
+    }
+
+    @keyframes ambientPulse {
+      0%,100% { opacity: .72; transform: scale(1); }
+      50%     { opacity: 1; transform: scale(1.03); }
     }
 
     .brain-wrap {
       position: absolute;
       inset: 0;
+      z-index: 2;
     }
 
     .brain-image {
       position: absolute;
       inset: 0;
-
       width: 100%;
       height: 100%;
-
       object-fit: contain;
 
       filter:
-        brightness(1)
-        saturate(1)
-        drop-shadow(
-          0 30px 46px
-          rgba(54, 34, 18, 0.13)
-        );
+        brightness(.86)
+        saturate(.9)
+        contrast(1.03)
+        drop-shadow(0 22px 28px rgba(0,0,0,.38))
+        drop-shadow(0 42px 65px rgba(0,0,0,.26));
 
-      animation:
-        brainBreathing 8s
-        ease-in-out
-        infinite;
+      animation: brainBreathing 8s ease-in-out infinite;
+      transition: filter 2.4s ease;
+      z-index: 2;
     }
 
     @keyframes brainBreathing {
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.013);
-      }
+      0%,100% { transform: scale(1); }
+      50%     { transform: scale(1.012); }
     }
 
     /* =========================================================
@@ -493,49 +501,37 @@
 
     .brain-current {
       position: absolute;
-
       inset: 4%;
-
       width: 92%;
       height: 92%;
-
       z-index: 7;
-
       pointer-events: none;
-
-      opacity: 0.8;
+      opacity: .82;
     }
 
     .brain-current path {
       fill: none;
-
       stroke-width: 1.55;
       stroke-linecap: round;
-
       stroke-dasharray: 3 17;
-
-      animation:
-        currentFlow 8s
-        linear
-        infinite;
+      filter: drop-shadow(0 0 4px currentColor);
+      animation: currentFlow 8s linear infinite;
     }
 
     .cra-line {
-      stroke: rgba(92, 150, 255, 0.68);
+      stroke: rgba(92,150,255,.72);
     }
 
     .atrium-line {
-      stroke: rgba(81, 181, 119, 0.66);
+      stroke: rgba(81,181,119,.72);
     }
 
     .portfolio-line {
-      stroke: rgba(228, 205, 167, 0.94);
+      stroke: rgba(228,205,167,.90);
     }
 
     @keyframes currentFlow {
-      to {
-        stroke-dashoffset: -220;
-      }
+      to { stroke-dashoffset: -220; }
     }
 
     /* =========================================================
@@ -545,172 +541,128 @@
     .region {
       -webkit-tap-highlight-color: transparent;
       position: absolute;
-
       z-index: 12;
-
       border: 0;
       border-radius: 50%;
-
       background: transparent;
-
       color: currentColor;
-
       outline: none;
     }
 
     .region::before {
       content: "";
-
       position: absolute;
       inset: -30%;
-
       border-radius: 50%;
-
-      opacity: 0.36;
-
-      filter: blur(28px);
-
-      transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+      opacity: .42;
+      filter: blur(30px);
+      transition: opacity .7s ease, transform .7s ease;
+      animation: regionBreathe 5.5s ease-in-out infinite;
     }
 
     .region::after {
       content: "";
-
       position: absolute;
       inset: 15%;
-
       border: 1px solid currentColor;
       border-radius: 50%;
+      opacity: .16;
+      box-shadow: 0 0 32px currentColor;
+      transition: opacity .55s ease, transform .55s ease;
+    }
 
-      opacity: 0.18;
-
-      box-shadow:
-        0 0 30px currentColor;
-
-      transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
+    @keyframes regionBreathe {
+      0%,100% { opacity: .32; transform: scale(.96); }
+      50%     { opacity: .55; transform: scale(1.06); }
     }
 
     .region:hover::before,
     .region:focus-visible::before {
-      opacity: 0.85;
+      opacity: .92;
       transform: scale(1.18);
     }
 
     .region:hover::after,
     .region:focus-visible::after {
-      opacity: 0.62;
+      opacity: .65;
       transform: scale(1.08);
     }
 
     .region-label {
       position: absolute;
-
       left: 50%;
       top: 50%;
-
-      transform:
-        translate(-50%, -50%);
-
+      transform: translate(-50%,-50%);
       white-space: nowrap;
-
-      opacity: 0.56;
-
+      opacity: .72;
+      color: #f6f1eb;
       font-size: 9px;
-      letter-spacing: 0.19em;
+      letter-spacing: .19em;
       text-transform: uppercase;
-
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
+      text-shadow: 0 1px 8px rgba(0,0,0,.55);
+      transition: opacity .4s ease, transform .4s ease;
     }
 
     .region:hover .region-label,
     .region:focus-visible .region-label {
       opacity: 1;
-
-      transform:
-        translate(-50%, -50%)
-        scale(1.05);
+      transform: translate(-50%,-50%) scale(1.05);
     }
-
-    /* CRA = BLUE */
 
     .region-cra {
       left: 8%;
       top: 22%;
-
       width: 31%;
       height: 30%;
-
       color: #528df0;
     }
 
     .region-cra::before {
-      background:
-        radial-gradient(
-          circle,
-          var(--cra),
-          transparent 70%
-        );
+      background: radial-gradient(circle, var(--cra), transparent 70%);
     }
-
-    /* ATRIUM = GREEN */
 
     .region-atrium {
       left: 37%;
       top: 6%;
-
       width: 34%;
       height: 32%;
-
       color: #4aa96d;
     }
 
     .region-atrium::before {
-      background:
-        radial-gradient(
-          circle,
-          var(--atrium),
-          transparent 70%
-        );
+      background: radial-gradient(circle, var(--atrium), transparent 70%);
     }
-
-    /* PORTFOLIO = CREAM */
 
     .region-portfolio {
       left: 58%;
       top: 48%;
-
       width: 34%;
       height: 31%;
-
       color: #c7a16a;
     }
 
     .region-portfolio::before {
-      background:
-        radial-gradient(
-          circle,
-          var(--portfolio),
-          transparent 70%
-        );
+      background: radial-gradient(circle, var(--portfolio), transparent 70%);
+    }
+
+    .region.flash::before {
+      opacity: .98;
+      transform: scale(1.2);
+    }
+
+    .region.flash::after {
+      opacity: .72;
+      transform: scale(1.1);
+    }
+
+    .region.flash .region-label {
+      opacity: 1;
+      transform: translate(-50%,-50%) scale(1.08);
     }
 
     /* =========================================================
-       CARTOON MARTHA: A CHARACTER THAT LIVES ON THE PAGE
-       actor  = zero-size anchor at her feet (moved by script)
-       rig    = bob / stretch / hop animations, pivots on her feet
-       faces  = left / right flip
+       MARTHA CHARACTER
     ========================================================= */
-
-    :root {
-      --H: clamp(200px, 36vh, 360px);   /* her height */
-      --floor: clamp(24px, 5vh, 64px);  /* gap between her feet and screen bottom */
-    }
 
     .sr-only {
       position: absolute;
@@ -736,7 +688,7 @@
       width: 0;
       height: 0;
       opacity: 0;
-      transition: opacity 0.9s ease;
+      transition: opacity .9s ease;
       will-change: transform;
     }
 
@@ -753,17 +705,12 @@
       position: absolute;
       left: 0;
       bottom: calc(var(--H) * -0.02);
-      width: calc(var(--H) * 0.62);
-      height: calc(var(--H) * 0.07);
-      margin-left: calc(var(--H) * -0.31);
+      width: calc(var(--H) * .62);
+      height: calc(var(--H) * .07);
+      margin-left: calc(var(--H) * -.31);
       border-radius: 50%;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(52, 36, 24, 0.30),
-        rgba(52, 36, 24, 0.12) 48%,
-        transparent 72%
-      );
-      filter: blur(2px);
+      background: radial-gradient(ellipse at center, rgba(0,0,0,.42), rgba(0,0,0,.14) 48%, transparent 72%);
+      filter: blur(4px);
     }
 
     #rig {
@@ -795,90 +742,93 @@
       -webkit-user-drag: none;
       height: calc(var(--H) * var(--sh));
       margin-left: calc(var(--H) * var(--sx));
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,.25));
     }
 
     .sprite.on {
       opacity: 1;
     }
 
-    .sprite[data-pose="welcome"] { --sh: 1.0; --sx: -0.2216; }
-    .sprite[data-pose="pointing"] { --sh: 0.9748; --sx: -0.2327; }
-    .sprite[data-pose="explainer"] { --sh: 1.0014; --sx: -0.194; }
-    .sprite[data-pose="frustrated"] { --sh: 0.9635; --sx: -0.3335; }
+    .sprite[data-pose="welcome"]    { --sh: 1.0;    --sx: -0.2216; }
+    .sprite[data-pose="pointing"]   { --sh: .9748;  --sx: -0.2327; }
+    .sprite[data-pose="explainer"]  { --sh: 1.0014; --sx: -0.194; }
+    .sprite[data-pose="frustrated"] { --sh: .9635;  --sx: -0.3335; }
+    .sprite[data-pose="thinking"]   { --sh: .99;    --sx: -0.25; }
 
-    /* stride: two bounces per cycle, a little sway, shadow breathes with it */
     #rig.walking {
-      animation: step 0.92s ease-in-out infinite;
+      animation: step .92s ease-in-out infinite;
     }
 
     #actor.walking .shadow {
-      animation: shadowStep 0.92s ease-in-out infinite;
+      animation: shadowStep .92s ease-in-out infinite;
     }
 
     @keyframes step {
       0%   { transform: translateY(0) rotate(-1.7deg); }
-      25%  { transform: translateY(calc(var(--H) * -0.026)) rotate(0deg) scale(0.996, 1.01); }
+      25%  { transform: translateY(calc(var(--H) * -.026)) rotate(0deg) scale(.996,1.01); }
       50%  { transform: translateY(0) rotate(1.7deg); }
-      75%  { transform: translateY(calc(var(--H) * -0.026)) rotate(0deg) scale(0.996, 1.01); }
+      75%  { transform: translateY(calc(var(--H) * -.026)) rotate(0deg) scale(.996,1.01); }
       100% { transform: translateY(0) rotate(-1.7deg); }
     }
 
     @keyframes shadowStep {
-      0%, 50%, 100% { transform: scale(1); opacity: 1; }
-      25%, 75%      { transform: scale(0.88); opacity: 0.8; }
+      0%,50%,100% { transform: scale(1); opacity: 1; }
+      25%,75%     { transform: scale(.88); opacity: .8; }
     }
 
     #rig.hop {
-      animation: hop 0.62s ease-in-out 3;
+      animation: hop .62s ease-in-out 3;
     }
 
     @keyframes hop {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      35%      { transform: translateY(calc(var(--H) * -0.03)) rotate(-1.2deg); }
-      70%      { transform: translateY(0) rotate(1deg) scale(1.01, 0.985); }
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      35%     { transform: translateY(calc(var(--H) * -.03)) rotate(-1.2deg); }
+      70%     { transform: translateY(0) rotate(1deg) scale(1.01,.985); }
     }
 
-    /* stretch up, hold, slump */
     #rig.yawn {
       animation: yawn 3.2s ease-in-out forwards;
     }
 
     @keyframes yawn {
-      0%   { transform: scale(1, 1) rotate(0deg); }
-      34%  { transform: scale(0.99, 1.05) rotate(0.6deg); }
-      62%  { transform: scale(0.99, 1.05) rotate(0.6deg); }
-      100% { transform: scale(1.02, 0.955) rotate(-2.6deg); }
+      0%   { transform: scale(1,1) rotate(0deg); }
+      34%  { transform: scale(.99,1.05) rotate(.6deg); }
+      62%  { transform: scale(.99,1.05) rotate(.6deg); }
+      100% { transform: scale(1.02,.955) rotate(-2.6deg); }
     }
 
-    /* speech bubble travels with her */
+    /* =========================================================
+       BUBBLE
+    ========================================================= */
+
     #bubble {
       position: absolute;
-      left: calc(var(--H) * 0.2);
-      bottom: calc(var(--H) * 0.76);
+      left: calc(var(--H) * .2);
+      bottom: calc(var(--H) * .76);
       width: max-content;
       min-width: 150px;
-      max-width: min(62vw, 330px);
-      padding: 15px 19px;
-      border: 1px solid rgba(48, 40, 34, 0.12);
-      border-radius: 24px 24px 24px 5px;
-      background: rgba(255, 252, 247, 0.94);
-      box-shadow: 0 18px 50px rgba(66, 48, 31, 0.12);
-      backdrop-filter: blur(12px);
+      max-width: min(55vw,310px);
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 22px 22px 22px 5px;
+      background: rgba(27,26,27,.88);
+      color: #f6f1eb;
+      box-shadow: 0 18px 50px rgba(0,0,0,.24);
+      backdrop-filter: blur(14px);
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(19px, 1.9vw, 27px);
+      font-size: clamp(18px,1.8vw,26px);
       font-weight: 500;
       line-height: 1.1;
-      color: var(--ink);
       opacity: 0;
-      transform: translateY(6px) scale(0.96);
+      transform: translateY(6px) scale(.96);
       transform-origin: 0 100%;
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transition: opacity .35s ease, transform .35s ease;
     }
 
     #bubble.left {
       left: auto;
-      right: calc(var(--H) * 0.2);
-      border-radius: 24px 24px 5px 24px;
+      right: calc(var(--H) * .2);
+      border-radius: 22px 22px 5px 22px;
       transform-origin: 100% 100%;
     }
 
@@ -889,24 +839,18 @@
 
     #bubble small {
       display: block;
-      margin-top: 9px;
-      color: #8c7d70;
+      margin-top: 8px;
+      color: #aaa096;
       font-family: "Inter", sans-serif;
       font-size: 8px;
       font-weight: 500;
       line-height: 1.4;
-      letter-spacing: 0.13em;
+      letter-spacing: .13em;
       text-transform: uppercase;
     }
 
-    /* region lights up when she points at it */
-    .region.flash::before { opacity: 0.95; transform: scale(1.2); }
-    .region.flash::after  { opacity: 0.7;  transform: scale(1.1); }
-    .region.flash .region-label { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
-
     /* =========================================================
-       NIGHT: she falls asleep, the room goes dark, only the
-       brain lights stay on. Tap anywhere to wake her.
+       NIGHT / SLEEP
     ========================================================= */
 
     #night {
@@ -916,7 +860,7 @@
       opacity: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 68% 48%, rgba(26, 24, 36, 0.94), rgba(4, 5, 9, 0.985) 72%);
+        radial-gradient(circle at 68% 48%, rgba(24,26,35,.95), rgba(4,5,9,.988) 72%);
       transition: opacity 2.6s ease;
     }
 
@@ -925,17 +869,15 @@
       pointer-events: auto;
     }
 
-    /* the brain climbs above the dark so its lights stay on */
     .night-on .brain-board {
       z-index: 40;
     }
 
-    .brain-image {
-      transition: filter 2.4s ease;
-    }
-
     .night-on .brain-image {
-      filter: brightness(0.16) saturate(0.55) drop-shadow(0 30px 46px rgba(0, 0, 0, 0));
+      filter:
+        brightness(.16)
+        saturate(.55)
+        drop-shadow(0 30px 46px rgba(0,0,0,0));
     }
 
     .night-on .brain-current {
@@ -943,48 +885,43 @@
     }
 
     .night-on .region::before {
-      opacity: 0.95;
+      opacity: .95;
       filter: blur(34px);
     }
 
     .night-on .region::after {
-      opacity: 0.55;
+      opacity: .55;
     }
 
     .night-on .region-label {
-      opacity: 0.95;
+      opacity: .95;
       color: #fff;
     }
 
     .night-on .main-brand,
     .night-on .mind-map-label {
-      opacity: 0.25;
+      opacity: .25;
       transition: opacity 2s ease;
     }
 
     #bed {
       position: absolute;
-      left: clamp(10px, 3vw, 52px);
-      bottom: clamp(14px, 4vh, 48px);
+      left: clamp(10px,3vw,52px);
+      bottom: clamp(14px,4vh,48px);
       z-index: 42;
-      width: min(34vw, 400px);
+      width: min(34vw,400px);
       min-width: 230px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 2.2s ease 0.9s;
+      transition: opacity 2.2s ease .9s;
     }
 
     #bed img {
       width: 100%;
-      -webkit-mask-image:
-        linear-gradient(to right, transparent 0, #000 11%, #000 89%, transparent 100%),
-        linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
-      mask-image:
-        linear-gradient(to right, transparent 0, #000 11%, #000 89%, transparent 100%),
-        linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
-      -webkit-mask-composite: source-in;
-      mask-composite: intersect;
-      filter: brightness(0.72) saturate(0.85);
+      filter:
+        brightness(.62)
+        saturate(.82)
+        drop-shadow(0 10px 24px rgba(0,0,0,.30));
     }
 
     .night-on #bed {
@@ -996,31 +933,38 @@
       left: 62%;
       top: 22%;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(22px, 2.4vw, 34px);
-      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(22px,2.4vw,34px);
+      color: rgba(255,255,255,.78);
       opacity: 0;
       animation: zFloat 3.4s ease-in-out infinite;
     }
 
-    #bed .z:nth-of-type(2) { animation-delay: 1.1s; left: 66%; }
-    #bed .z:nth-of-type(3) { animation-delay: 2.2s; left: 70%; }
+    #bed .z:nth-of-type(2) {
+      animation-delay: 1.1s;
+      left: 66%;
+    }
+
+    #bed .z:nth-of-type(3) {
+      animation-delay: 2.2s;
+      left: 70%;
+    }
 
     @keyframes zFloat {
-      0%   { opacity: 0;    transform: translate(0, 0) scale(0.7); }
-      20%  { opacity: 0.9; }
-      100% { opacity: 0;    transform: translate(26px, -78px) scale(1.3); }
+      0%   { opacity: 0; transform: translate(0,0) scale(.7); }
+      20%  { opacity: .9; }
+      100% { opacity: 0; transform: translate(26px,-78px) scale(1.3); }
     }
 
     #wakeHint {
       position: absolute;
       left: 50%;
-      bottom: clamp(14px, 3vh, 30px);
+      bottom: clamp(14px,3vh,30px);
       z-index: 43;
       transform: translateX(-50%);
       white-space: nowrap;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255,255,255,.5);
       font-size: 8px;
-      letter-spacing: 0.2em;
+      letter-spacing: .2em;
       text-transform: uppercase;
       opacity: 0;
       pointer-events: none;
@@ -1038,29 +982,14 @@
     .card-overlay {
       position: absolute;
       inset: 0;
-
       z-index: 60;
-
       display: grid;
       place-items: center;
-
       opacity: 0;
       visibility: hidden;
-
-      background:
-        rgba(
-          13,
-          12,
-          11,
-          0.26
-        );
-
-      backdrop-filter:
-        blur(11px);
-
-      transition:
-        opacity 0.55s ease,
-        visibility 0.55s ease;
+      background: rgba(7,7,8,.58);
+      backdrop-filter: blur(12px);
+      transition: opacity .55s ease, visibility .55s ease;
     }
 
     .card-overlay.open {
@@ -1069,38 +998,17 @@
     }
 
     .card {
-      width: min(86vw, 860px);
-
-      min-height:
-        min(68vh, 620px);
-
+      width: min(86vw,860px);
+      min-height: min(68vh,620px);
       display: grid;
-      grid-template-columns:
-        44% 56%;
-
+      grid-template-columns: 44% 56%;
       overflow: hidden;
-
-      border-radius: 32px;
-
-      background: #fbf7f0;
-
-      box-shadow:
-        0 38px 100px
-        rgba(30, 20, 14, 0.28);
-
-      transform:
-        translateY(24px)
-        scale(0.97);
-
-      transition:
-        transform
-        0.6s
-        cubic-bezier(
-          0.2,
-          0.75,
-          0.2,
-          1
-        );
+      border-radius: 30px;
+      background: #f7f0e7;
+      color: #1c1814;
+      box-shadow: 0 38px 100px rgba(0,0,0,.42);
+      transform: translateY(24px) scale(.97);
+      transition: transform .6s cubic-bezier(.2,.75,.2,1);
     }
 
     .card-overlay.open .card {
@@ -1109,16 +1017,13 @@
 
     .card-image-wrap {
       position: relative;
-
       min-height: 100%;
-
       background: #ddd;
     }
 
     .card-image-wrap img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
     }
 
@@ -1126,56 +1031,29 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-
-      padding:
-        clamp(
-          28px,
-          5vw,
-          64px
-        );
+      padding: clamp(28px,5vw,64px);
     }
 
     .card-kicker {
-      margin:
-        0
-        0
-        14px;
-
+      margin: 0 0 14px;
       color: #8b7f73;
-
       font-size: 9px;
-      letter-spacing: 0.22em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
     .card-content h2 {
       margin: 0;
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
-      font-size:
-        clamp(
-          38px,
-          5vw,
-          68px
-        );
-
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px,5vw,68px);
       font-weight: 500;
-      line-height: 0.92;
+      line-height: .92;
     }
 
     .card-copy {
-      margin:
-        22px
-        0
-        0;
-
+      margin: 22px 0 0;
       max-width: 39ch;
-
       color: #514940;
-
       font-size: 14px;
       line-height: 1.65;
     }
@@ -1184,9 +1062,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-
       flex-wrap: wrap;
-
       margin-top: 30px;
     }
 
@@ -1194,28 +1070,17 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-
-      padding:
-        13px
-        17px;
-
+      padding: 13px 17px;
       border-radius: 999px;
-
       background: #151310;
       color: #fff;
-
       text-decoration: none;
     }
 
     .back-button {
       border: 0;
-
-      padding:
-        10px
-        8px;
-
+      padding: 10px 8px;
       background: transparent;
-
       color: #6d6258;
     }
 
@@ -1223,22 +1088,14 @@
       text-decoration: underline;
     }
 
-    /* =========================================================
-       SMALL FOOT LABEL
-    ========================================================= */
-
     .mind-map-label {
       position: absolute;
-
       right: 26px;
       bottom: 22px;
-
       z-index: 15;
-
-      color: #9a9085;
-
+      color: #aaa198;
       font-size: 8px;
-      letter-spacing: 0.15em;
+      letter-spacing: .15em;
       text-transform: uppercase;
     }
 
@@ -1249,12 +1106,10 @@
     @media (max-width: 780px) {
 
       :root {
-        --H: clamp(170px, 27vh, 250px);
+        --H: clamp(170px,27vh,250px);
         --floor: 22px;
       }
 
-      /* the brain used to hang 19vw off the right edge, which clipped
-         the Portfolio region. Keep the whole board on screen. */
       .brain-board {
         width: 100vw;
         right: 0;
@@ -1283,12 +1138,9 @@
       }
 
       .card {
-        width: min(91vw, 560px);
-
+        width: min(91vw,560px);
         max-height: 88vh;
-
         grid-template-columns: 1fr;
-
         overflow-y: auto;
       }
 
@@ -1302,38 +1154,29 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       *,
       *::before,
       *::after {
         animation: none !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- =======================================================
-       INTRO
-  ======================================================== -->
+  <!-- INTRO -->
 
   <section id="intro">
 
     <div class="intro-brand">
       <h1>Martha Wuya Koroma</h1>
-
-      <p>
-        Medicine · Research · Systems · Building
-      </p>
+      <p>Medicine · Research · Systems · Building</p>
     </div>
 
-    <button
-      class="skip-intro"
-      id="skipIntro"
-      type="button"
-    >
+    <button class="skip-intro" id="skipIntro" type="button">
       Skip intro
     </button>
 
@@ -1371,22 +1214,13 @@
   </section>
 
 
-  <!-- =======================================================
-       MAIN EXPERIENCE
-  ======================================================== -->
+  <!-- EXPERIENCE -->
 
   <main id="experience">
 
     <header class="main-brand">
-
-      <h1>
-        Martha Wuya Koroma
-      </h1>
-
-      <p>
-        Medicine · Research · Systems · Building
-      </p>
-
+      <h1>Martha Wuya Koroma</h1>
+      <p>Medicine · Research · Systems · Building</p>
     </header>
 
 
@@ -1405,9 +1239,6 @@
           alt="Interactive illustrated brain"
         />
 
-
-        <!-- coded currents -->
-
         <svg
           class="brain-current"
           viewBox="0 0 1000 1000"
@@ -1416,82 +1247,46 @@
 
           <path
             class="cra-line"
-            d="
-              M95,420
-              C190,320
-              250,290
-              370,330
-              C470,365
-              480,450
-              590,440
-            "
+            d="M95,420 C190,320 250,290 370,330 C470,365 480,450 590,440"
           />
 
           <path
             class="atrium-line"
-            d="
-              M240,160
-              C340,115
-              470,130
-              545,230
-              C620,325
-              690,330
-              755,300
-            "
+            d="M240,160 C340,115 470,130 545,230 C620,325 690,330 755,300"
           />
 
           <path
             class="portfolio-line"
-            d="
-              M510,570
-              C610,545
-              710,605
-              785,700
-              C835,765
-              860,770
-              920,735
-            "
+            d="M510,570 C610,545 710,605 785,700 C835,765 860,770 920,735"
           />
 
         </svg>
 
-
-        <!-- CRA -->
 
         <button
           class="region region-cra"
           data-state="cra"
           aria-label="Open CRA Portfolio"
         >
-          <span class="region-label">
-            CRA
-          </span>
+          <span class="region-label">CRA</span>
         </button>
 
-
-        <!-- ATRIUM -->
 
         <button
           class="region region-atrium"
           data-state="atrium"
           aria-label="Open Atrium"
         >
-          <span class="region-label">
-            Atrium
-          </span>
+          <span class="region-label">Atrium</span>
         </button>
 
-
-        <!-- PORTFOLIO -->
 
         <button
           class="region region-portfolio"
           data-state="portfolio"
           aria-label="Open Personal Portfolio"
         >
-          <span class="region-label">
-            Portfolio
-          </span>
+          <span class="region-label">Portfolio</span>
         </button>
 
       </div>
@@ -1499,7 +1294,7 @@
     </section>
 
 
-    <!-- CARTOON MARTHA: walks, waves, points, falls asleep -->
+    <!-- CARTOON MARTHA -->
 
     <div id="stage" aria-hidden="true">
 
@@ -1510,39 +1305,91 @@
         <div id="rig">
 
           <div id="faces">
-            <img class="sprite on" data-pose="welcome"    src="sprites/welcome.png"    alt="" />
-            <img class="sprite"    data-pose="pointing"   src="sprites/pointing.png"   alt="" />
-            <img class="sprite"    data-pose="explainer"  src="sprites/explainer.png"  alt="" />
-            <img class="sprite"    data-pose="frustrated" src="sprites/frustrated.png" alt="" />
+
+            <img
+              class="sprite on"
+              data-pose="welcome"
+              src="welcome-martha.png"
+              alt=""
+            />
+
+            <img
+              class="sprite"
+              data-pose="pointing"
+              src="pointing-martha.png"
+              alt=""
+            />
+
+            <img
+              class="sprite"
+              data-pose="explainer"
+              src="explainer-martha.png"
+              alt=""
+            />
+
+            <img
+              class="sprite"
+              data-pose="frustrated"
+              src="frustrated-martha.png"
+              alt=""
+            />
+
+            <img
+              class="sprite"
+              data-pose="thinking"
+              src="thinking-martha.png"
+              alt=""
+            />
+
           </div>
 
         </div>
 
+
         <div id="bubble">
-          <span id="bubbleText">Choose your Martha</span>
-          <small id="bubbleSmall">Tap a glowing part of the brain</small>
+          <span id="bubbleText">
+            Choose your Martha
+          </span>
+
+          <small id="bubbleSmall">
+            Tap a glowing part of the brain
+          </small>
         </div>
 
       </div>
 
     </div>
 
+
     <p class="sr-only">
       Choose your Martha. Select a glowing part of the brain:
       CRA, Atrium or Portfolio.
     </p>
 
-    <!-- night mode -->
+
+    <!-- NIGHT -->
+
     <div id="night"></div>
 
     <div id="bed" aria-hidden="true">
-      <img src="sleep-martha.png" alt="" />
+
+      <img
+        src="sleep-martha.png"
+        alt=""
+      />
+
       <span class="z">z</span>
       <span class="z">z</span>
       <span class="z">z</span>
+
     </div>
 
-    <div id="wakeHint" aria-hidden="true">Tap anywhere to wake her</div>
+    <div
+      id="wakeHint"
+      aria-hidden="true"
+    >
+      Tap anywhere to wake her
+    </div>
 
 
     <div class="mind-map-label">
@@ -1550,9 +1397,7 @@
     </div>
 
 
-    <!-- ===================================================
-         POPUP CARD
-    ==================================================== -->
+    <!-- CARD -->
 
     <div
       class="card-overlay"
@@ -1620,701 +1465,1550 @@
   </main>
 
 
-  <script>
+<script>
 
-    /* ======================================================
-       INTRO
-    ====================================================== */
+  /* ======================================================
+     INTRO
+  ====================================================== */
 
-    const intro =
-      document.getElementById("intro");
+  const intro =
+    document.getElementById("intro");
 
-    const experience =
-      document.getElementById("experience");
+  const experience =
+    document.getElementById("experience");
 
-    const skipIntro =
-      document.getElementById("skipIntro");
+  const skipIntro =
+    document.getElementById("skipIntro");
+
+  let entered = false;
 
 
-    let entered = false;
+  function enterExperience() {
 
-    function enterExperience() {
+    if (entered) return;
 
-      if (entered) return;
-      entered = true;
+    entered = true;
 
-      intro.classList.add("done");
+    intro.classList.add("done");
 
-      experience.classList.add("show");
+    experience.classList.add("show");
 
-      /* let the page fade in first, then she walks on */
-      setTimeout(beginLife, 900);
+    setTimeout(beginLife, 900);
+
+  }
+
+
+  skipIntro.addEventListener(
+    "click",
+    enterExperience
+  );
+
+
+  setTimeout(
+    enterExperience,
+    12500
+  );
+
+
+  /* ======================================================
+     CARD DATA
+  ====================================================== */
+
+  const states = {
+
+    cra: {
+
+      title:
+        "CRA Portfolio",
+
+      kicker:
+        "Clinical Research · Evidence · Systems",
+
+      image:
+        "cra-martha.png",
+
+      copy:
+        "Where I show exactly where and how medicine, research, style and business interact — systems thinking in real time.",
+
+      link:
+        "https://cra.marthakoroma.com"
+
+    },
+
+
+    atrium: {
+
+      title:
+        "Atrium",
+
+      kicker:
+        "Fashion · Reading · Cozy Salon",
+
+      image:
+        "atrium-martha.png",
+
+      copy:
+        "Fashion, reading and a cozy salon just for existing all live here.",
+
+      link:
+        "https://atrium.marthakoroma.com"
+
+    },
+
+
+    portfolio: {
+
+      title:
+        "Personal Portfolio",
+
+      kicker:
+        "The Path · The Work · The Person",
+
+      image:
+        "portfolio-martha.png",
+
+      copy:
+        "From high school, uni, first job till now — all in one place.",
+
+      link:
+        "https://portfolio.marthakoroma.com"
+
+    }
+
+  };
+
+
+  /* ======================================================
+     CARD
+  ====================================================== */
+
+  const cardOverlay =
+    document.getElementById("cardOverlay");
+
+  const cardImage =
+    document.getElementById("cardImage");
+
+  const cardTitle =
+    document.getElementById("cardTitle");
+
+  const cardKicker =
+    document.getElementById("cardKicker");
+
+  const cardCopy =
+    document.getElementById("cardCopy");
+
+  const cardLink =
+    document.getElementById("cardLink");
+
+  const closeCard =
+    document.getElementById("closeCard");
+
+
+  document
+    .querySelectorAll(".region")
+    .forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const state =
+            states[
+              button.dataset.state
+            ];
+
+          cardImage.src =
+            state.image;
+
+          cardImage.alt =
+            state.title;
+
+          cardTitle.textContent =
+            state.title;
+
+          cardKicker.textContent =
+            state.kicker;
+
+          cardCopy.textContent =
+            state.copy;
+
+          cardLink.href =
+            state.link;
+
+          cardLink.textContent =
+            "Enter " +
+            state.title +
+            " →";
+
+          cardOverlay
+            .classList
+            .add("open");
+
+          cardOverlay
+            .setAttribute(
+              "aria-hidden",
+              "false"
+            );
+
+          quietForCard();
+
+        }
+      );
+
+    });
+
+
+  function closeModal() {
+
+    cardOverlay
+      .classList
+      .remove("open");
+
+    cardOverlay
+      .setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+    say(
+      "Choose your Martha",
+      "Tap a glowing part of the brain"
+    );
+
+    scheduleIdle();
+
+  }
+
+
+  closeCard.addEventListener(
+    "click",
+    closeModal
+  );
+
+
+  cardOverlay.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target ===
+        cardOverlay
+      ) {
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key === "Escape"
+      ) {
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+  /* ======================================================
+     MARTHA LIFE ENGINE
+  ====================================================== */
+
+  const $ =
+    (sel) =>
+      document.querySelector(sel);
+
+  const actor =
+    $("#actor");
+
+  const rig =
+    $("#rig");
+
+  const faces =
+    $("#faces");
+
+  const bubble =
+    $("#bubble");
+
+  const bubbleText =
+    $("#bubbleText");
+
+  const bubbleSmall =
+    $("#bubbleSmall");
+
+  const sprites = {};
+
+
+  document
+    .querySelectorAll(".sprite")
+    .forEach((el) => {
+
+      sprites[
+        el.dataset.pose
+      ] = el;
+
+    });
+
+
+  const reduceMotion =
+    window
+      .matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      )
+      .matches;
+
+
+  const CANCEL =
+    Symbol("cancel");
+
+
+  let token = 0;
+
+  let running = false;
+
+  let asleep = false;
+
+  let anim = null;
+
+  let idleTimer = null;
+
+  let wakeResolve = null;
+
+
+  const pos = {
+    x: 0,
+    y: 0,
+    s: 1,
+    dir: 1
+  };
+
+
+  const clamp =
+    (v, lo, hi) =>
+      Math.min(
+        Math.max(v, lo),
+        hi
+      );
+
+
+  const H =
+    () =>
+      sprites.welcome.offsetHeight
+      || 300;
+
+
+  const homeX =
+    () =>
+      H() * .4 + 14;
+
+
+  function place(
+    x,
+    y,
+    s
+  ) {
+
+    pos.x = x;
+
+    pos.y = y;
+
+    pos.s = s;
+
+    actor.style.transform =
+      "translate3d(" +
+      x +
+      "px," +
+      y +
+      "px,0) scale(" +
+      s +
+      ")";
+
+  }
+
+
+  function face(dir) {
+
+    pos.dir = dir;
+
+    faces.style.transform =
+      dir < 0
+      ? "scaleX(-1)"
+      : "";
+
+  }
+
+
+  function pose(name) {
+
+    Object
+      .keys(sprites)
+      .forEach((k) => {
+
+        sprites[k]
+          .classList
+          .toggle(
+            "on",
+            k === name
+          );
+
+      });
+
+  }
+
+
+  function say(
+    text,
+    small
+  ) {
+
+    if (!text) {
+
+      bubble
+        .classList
+        .remove("show");
+
+      return;
 
     }
 
 
-    skipIntro.addEventListener(
-      "click",
-      enterExperience
-    );
+    bubbleText.textContent =
+      text;
 
 
-    /* slow intro:
-       approximately 13 seconds
-    */
-
-    setTimeout(
-      enterExperience,
-      13000
-    );
+    bubbleSmall.textContent =
+      small || "";
 
 
-    /* ======================================================
-       CARD DATA
-    ====================================================== */
-
-    const states = {
-
-      cra: {
-
-        title:
-          "CRA Portfolio",
-
-        kicker:
-          "Clinical Research · Evidence · Systems",
-
-        image:
-          "cra-martha.png",
-
-        copy:
-          "Where I show exactly where and how medicine, research, style and business interact — systems thinking in real time.",
-
-        link:
-          "https://cra.marthakoroma.com"
-
-      },
+    bubbleSmall.style.display =
+      small
+      ? "block"
+      : "none";
 
 
-      atrium: {
-
-        title:
-          "Atrium",
-
-        kicker:
-          "Fashion · Reading · Cozy Salon",
-
-        image:
-          "atrium-martha.png",
-
-        copy:
-          "Fashion, reading and a cozy salon just for existing all live here.",
-
-        link:
-          "https://atrium.marthakoroma.com"
-
-      },
+    bubble
+      .classList
+      .remove("left");
 
 
-      portfolio: {
+    const need =
+      bubble.offsetWidth
+      +
+      H() * .2
+      +
+      16;
 
-        title:
-          "Personal Portfolio",
 
-        kicker:
-          "The Path · The Work · The Person",
+    if (
+      pos.x + need
+      >
+      window.innerWidth
+    ) {
 
-        image:
-          "portfolio-martha.png",
+      bubble
+        .classList
+        .add("left");
 
-        copy:
-          "From high school, uni, first job till now — all in one place.",
+    }
 
-        link:
-          "https://portfolio.marthakoroma.com"
+
+    bubble
+      .classList
+      .add("show");
+
+  }
+
+
+  function wait(
+    ms,
+    t
+  ) {
+
+    return new Promise(
+      (
+        resolve,
+        reject
+      ) => {
+
+        setTimeout(
+          () =>
+            (
+              t === token
+              ? resolve()
+              : reject(CANCEL)
+            ),
+          ms
+        );
 
       }
+    );
 
+  }
+
+
+  function stopWalk() {
+
+    if (anim) {
+
+      const m =
+        new DOMMatrix(
+          getComputedStyle(actor)
+            .transform
+        );
+
+
+      place(
+        m.e,
+        m.f,
+        m.a
+      );
+
+
+      anim.cancel();
+
+      anim = null;
+
+    }
+
+
+    rig
+      .classList
+      .remove(
+        "walking",
+        "hop",
+        "yawn"
+      );
+
+
+    actor
+      .classList
+      .remove(
+        "walking"
+      );
+
+  }
+
+
+  async function walkTo(
+    t,
+    x,
+    y,
+    s
+  ) {
+
+    y = y || 0;
+
+    s = s || 1;
+
+
+    const from = {
+      x: pos.x,
+      y: pos.y,
+      s: pos.s
     };
 
 
-    /* ======================================================
-       POPUP CARD
-    ====================================================== */
-
-    const cardOverlay =
-      document.getElementById(
-        "cardOverlay"
+    const dist =
+      Math.hypot(
+        x - from.x,
+        (y - from.y) * 1.4
       );
 
-    const cardImage =
-      document.getElementById(
-        "cardImage"
+
+    if (dist < 6) {
+
+      place(
+        x,
+        y,
+        s
       );
 
-    const cardTitle =
-      document.getElementById(
-        "cardTitle"
+      return;
+
+    }
+
+
+    const duration =
+      Math.max(
+        900,
+        (
+          dist
+          /
+          (
+            H()
+            *
+            .58
+          )
+        )
+        *
+        1000
       );
 
-    const cardKicker =
-      document.getElementById(
-        "cardKicker"
+
+    face(
+      x >= from.x
+      ? 1
+      : -1
+    );
+
+
+    pose("explainer");
+
+
+    rig
+      .classList
+      .add("walking");
+
+
+    actor
+      .classList
+      .add("walking");
+
+
+    anim =
+      actor.animate(
+
+        [
+          {
+            transform:
+              "translate3d(" +
+              from.x +
+              "px," +
+              from.y +
+              "px,0) scale(" +
+              from.s +
+              ")"
+          },
+
+          {
+            transform:
+              "translate3d(" +
+              x +
+              "px," +
+              y +
+              "px,0) scale(" +
+              s +
+              ")"
+          }
+        ],
+
+        {
+          duration:
+            duration,
+
+          easing:
+            "cubic-bezier(.4,.05,.45,1)",
+
+          fill:
+            "forwards"
+        }
+
       );
 
-    const cardCopy =
-      document.getElementById(
-        "cardCopy"
-      );
 
-    const cardLink =
-      document.getElementById(
-        "cardLink"
-      );
+    try {
 
-    const closeCard =
-      document.getElementById(
-        "closeCard"
-      );
+      await anim.finished;
 
+    }
+
+    catch (e) {
+
+      throw CANCEL;
+
+    }
+
+
+    place(
+      x,
+      y,
+      s
+    );
+
+
+    anim.cancel();
+
+    anim = null;
+
+
+    rig
+      .classList
+      .remove("walking");
+
+
+    actor
+      .classList
+      .remove("walking");
+
+
+    if (
+      t !== token
+    ) {
+
+      throw CANCEL;
+
+    }
+
+  }
+
+
+  function regionPoint(key) {
+
+    const r =
+      $(
+        ".region-" +
+        key
+      )
+      .getBoundingClientRect();
+
+
+    return {
+
+      x:
+        r.left
+        +
+        r.width
+        /
+        2,
+
+      y:
+        r.top
+        +
+        r.height
+        /
+        2
+
+    };
+
+  }
+
+
+  function flash(
+    key,
+    on
+  ) {
+
+    $(
+      ".region-" +
+      key
+    )
+    .classList
+    .toggle(
+      "flash",
+      on
+    );
+
+  }
+
+
+  function clearFlash() {
 
     document
-      .querySelectorAll(".region")
-      .forEach((button) => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            const state =
-              states[
-                button.dataset.state
-              ];
-
-            cardImage.src =
-              state.image;
-
-            cardImage.alt =
-              state.title;
-
-            cardTitle.textContent =
-              state.title;
-
-            cardKicker.textContent =
-              state.kicker;
-
-            cardCopy.textContent =
-              state.copy;
-
-            cardLink.href =
-              state.link;
-
-            cardLink.textContent =
-              "Enter " +
-              state.title +
-              " →";
-
-            cardOverlay
-              .classList
-              .add("open");
-
-            cardOverlay
-              .setAttribute(
-                "aria-hidden",
-                "false"
-              );
-
-            quietForCard();
-
-          }
-        );
-
-      });
-
-
-    function closeModal() {
-
-      cardOverlay
-        .classList
-        .remove("open");
-
-      cardOverlay
-        .setAttribute(
-          "aria-hidden",
-          "true"
-        );
-
-      say("Choose your Martha", "Tap a glowing part of the brain");
-      scheduleIdle();
-
-    }
-
-
-    closeCard.addEventListener(
-      "click",
-      closeModal
-    );
-
-
-    cardOverlay.addEventListener(
-      "click",
-      (event) => {
-
-        if (
-          event.target ===
-          cardOverlay
-        ) {
-
-          closeModal();
-
-        }
-
-      }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (
-          event.key === "Escape"
-        ) {
-
-          closeModal();
-
-        }
-
-      }
-    );
-
-
-    /* ======================================================
-       CARTOON MARTHA: LIFE
-       walk, wave, point at each part of the brain, get tired,
-       yawn, fall asleep. The room goes dark; only the brain
-       lights stay on. Any tap wakes her and ends the show.
-    ====================================================== */
-
-    const $ = (sel) => document.querySelector(sel);
-
-    const actor = $("#actor");
-    const rig = $("#rig");
-    const faces = $("#faces");
-    const bubble = $("#bubble");
-    const bubbleText = $("#bubbleText");
-    const bubbleSmall = $("#bubbleSmall");
-
-    const sprites = {};
-    document.querySelectorAll(".sprite").forEach((el) => {
-      sprites[el.dataset.pose] = el;
-    });
-
-    const reduceMotion =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const CANCEL = Symbol("cancel");
-
-    let token = 0;          /* bumping this cancels the running show */
-    let running = false;
-    let asleep = false;
-    let anim = null;        /* the walk currently playing */
-    let idleTimer = null;
-    let wakeResolve = null;
-
-    const pos = { x: 0, y: 0, s: 1, dir: 1 };
-
-    const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
-
-    /* her height in px (the welcome sprite is exactly --H tall) */
-    const H = () => sprites.welcome.offsetHeight || 300;
-
-    const homeX = () => H() * 0.4 + 14;
-
-    function place(x, y, s) {
-      pos.x = x;
-      pos.y = y;
-      pos.s = s;
-      actor.style.transform =
-        "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")";
-    }
-
-    function face(dir) {
-      pos.dir = dir;
-      faces.style.transform = dir < 0 ? "scaleX(-1)" : "";
-    }
-
-    function pose(name) {
-      Object.keys(sprites).forEach((k) => {
-        sprites[k].classList.toggle("on", k === name);
-      });
-    }
-
-    function say(text, small) {
-
-      if (!text) {
-        bubble.classList.remove("show");
-        return;
-      }
-
-      bubbleText.textContent = text;
-      bubbleSmall.textContent = small || "";
-      bubbleSmall.style.display = small ? "block" : "none";
-
-      /* open the bubble toward whichever side has room */
-      bubble.classList.remove("left");
-      const need = bubble.offsetWidth + H() * 0.2 + 16;
-      if (pos.x + need > window.innerWidth) {
-        bubble.classList.add("left");
-      }
-
-      bubble.classList.add("show");
-    }
-
-    function wait(ms, t) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => (t === token ? resolve() : reject(CANCEL)), ms);
-      });
-    }
-
-    function stopWalk() {
-
-      if (anim) {
-        const m = new DOMMatrix(getComputedStyle(actor).transform);
-        place(m.e, m.f, m.a);
-        anim.cancel();
-        anim = null;
-      }
-
-      rig.classList.remove("walking", "hop", "yawn");
-      actor.classList.remove("walking");
-
-    }
-
-    async function walkTo(t, x, y, s) {
-
-      y = y || 0;
-      s = s || 1;
-
-      const from = { x: pos.x, y: pos.y, s: pos.s };
-      const dist = Math.hypot(x - from.x, (y - from.y) * 1.4);
-
-      if (dist < 6) {
-        place(x, y, s);
-        return;
-      }
-
-      const duration = Math.max(800, (dist / (H() * 0.6)) * 1000);
-
-      face(x >= from.x ? 1 : -1);
-      pose("explainer");
-
-      rig.classList.add("walking");
-      actor.classList.add("walking");
-
-      anim = actor.animate(
-        [
-          { transform: "translate3d(" + from.x + "px," + from.y + "px,0) scale(" + from.s + ")" },
-          { transform: "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")" }
-        ],
-        { duration: duration, easing: "cubic-bezier(.4,.05,.45,1)", fill: "forwards" }
+      .querySelectorAll(
+        ".region.flash"
+      )
+      .forEach(
+        (r) =>
+          r
+            .classList
+            .remove("flash")
       );
 
-      try {
-        await anim.finished;
-      } catch (e) {
-        throw CANCEL;
+  }
+
+
+  async function playOnce(
+    cls,
+    ms,
+    t,
+    keep
+  ) {
+
+    rig
+      .classList
+      .remove(cls);
+
+
+    void rig.offsetWidth;
+
+
+    rig
+      .classList
+      .add(cls);
+
+
+    await wait(
+      ms,
+      t
+    );
+
+
+    if (!keep) {
+
+      rig
+        .classList
+        .remove(cls);
+
+    }
+
+  }
+
+
+  function setNight(on) {
+
+    document.body
+      .classList
+      .toggle(
+        "night-on",
+        on
+      );
+
+
+    asleep = on;
+
+  }
+
+
+  function goHome(
+    withPrompt
+  ) {
+
+    rig
+      .classList
+      .remove(
+        "walking",
+        "hop",
+        "yawn"
+      );
+
+
+    pose("welcome");
+
+    face(1);
+
+    place(
+      homeX(),
+      0,
+      1
+    );
+
+
+    if (
+      withPrompt
+    ) {
+
+      say(
+        "Choose your Martha",
+        "Tap a glowing part of the brain"
+      );
+
+    }
+
+    else {
+
+      say(null);
+
+    }
+
+  }
+
+
+  /* ======================================================
+     TOUR
+  ====================================================== */
+
+  async function show(
+    fromOffscreen
+  ) {
+
+    cancelShow();
+
+
+    const t =
+      ++token;
+
+
+    running = true;
+
+
+    const vw =
+      window.innerWidth;
+
+
+    const vh =
+      window.innerHeight;
+
+
+    const h =
+      H();
+
+
+    try {
+
+      if (
+        fromOffscreen
+      ) {
+
+        actor
+          .classList
+          .add("ready");
+
+
+        place(
+          -h * .7,
+          0,
+          1
+        );
+
+
+        face(1);
+
+        pose("explainer");
+
       }
 
-      place(x, y, s);
-      anim.cancel();
-      anim = null;
 
-      rig.classList.remove("walking");
-      actor.classList.remove("walking");
+      say(null);
 
-      if (t !== token) throw CANCEL;
-    }
 
-    function regionPoint(key) {
-      const r = $(".region-" + key).getBoundingClientRect();
-      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
-    }
+      await walkTo(
+        t,
+        homeX(),
+        0,
+        1
+      );
 
-    function flash(key, on) {
-      $(".region-" + key).classList.toggle("flash", on);
-    }
 
-    function clearFlash() {
-      document.querySelectorAll(".region.flash").forEach((r) => r.classList.remove("flash"));
-    }
-
-    async function playOnce(cls, ms, t, keep) {
-      rig.classList.remove(cls);
-      void rig.offsetWidth;
-      rig.classList.add(cls);
-      await wait(ms, t);
-      if (!keep) rig.classList.remove(cls);
-    }
-
-    function setNight(on) {
-      document.body.classList.toggle("night-on", on);
-      asleep = on;
-    }
-
-    function goHome(withPrompt) {
-      rig.classList.remove("walking", "hop", "yawn");
-      pose("welcome");
       face(1);
-      place(homeX(), 0, 1);
-      if (withPrompt) {
-        say("Choose your Martha", "Tap a glowing part of the brain");
-      } else {
+
+      pose("welcome");
+
+
+      say(
+        "Choose your Martha",
+        "Tap a glowing part of the brain"
+      );
+
+
+      await playOnce(
+        "hop",
+        1800,
+        t
+      );
+
+
+      await wait(
+        1500,
+        t
+      );
+
+
+      const tour = [
+
+        {
+          key:
+            "cra",
+
+          label:
+            "CRA",
+
+          y:
+            -.05
+            *
+            vh,
+
+          s:
+            .96
+        },
+
+
+        {
+          key:
+            "atrium",
+
+          label:
+            "Atrium",
+
+          y:
+            -.12
+            *
+            vh,
+
+          s:
+            .92
+        },
+
+
+        {
+          key:
+            "portfolio",
+
+          label:
+            "Portfolio",
+
+          y:
+            0,
+
+          s:
+            1
+        }
+
+      ];
+
+
+      for (
+        const stop
+        of tour
+      ) {
+
+        const p =
+          regionPoint(
+            stop.key
+          );
+
+
+        const x =
+          clamp(
+            p.x
+            -
+            h * .5,
+
+            h * .4
+            +
+            14,
+
+            vw
+            -
+            h * .62
+            -
+            12
+          );
+
+
         say(null);
+
+
+        await walkTo(
+          t,
+          x,
+          stop.y,
+          stop.s
+        );
+
+
+        face(1);
+
+        pose(
+          "pointing"
+        );
+
+
+        flash(
+          stop.key,
+          true
+        );
+
+
+        say(
+          stop.label
+        );
+
+
+        await wait(
+          2200,
+          t
+        );
+
+
+        flash(
+          stop.key,
+          false
+        );
+
       }
+
+
+      /* Thinking / wandering beat */
+
+      say(null);
+
+
+      await walkTo(
+        t,
+        homeX()
+        +
+        h * .12,
+        0,
+        1
+      );
+
+
+      pose(
+        "thinking"
+      );
+
+
+      await wait(
+        4200,
+        t
+      );
+
+
+      /* Frustrated */
+
+      pose(
+        "frustrated"
+      );
+
+
+      say(
+        "Wahala o. God abeg."
+      );
+
+
+      await wait(
+        2600,
+        t
+      );
+
+
+      /* Tired */
+
+      say(
+        "Hmmmm..."
+      );
+
+
+      await playOnce(
+        "yawn",
+        3200,
+        t,
+        true
+      );
+
+
+      say(null);
+
+
+      await wait(
+        500,
+        t
+      );
+
+
+      actor
+        .classList
+        .add("away");
+
+
+      setNight(true);
+
+
+      await new Promise(
+        (
+          resolve
+        ) => {
+
+          wakeResolve =
+            resolve;
+
+        }
+      );
+
+
+      wakeResolve =
+        null;
+
+
+      if (
+        t !== token
+      ) {
+
+        throw CANCEL;
+
+      }
+
+
+      await wakeUp(t);
+
     }
 
-    /* ---------- the show ---------- */
+    catch (e) {
 
-    async function show(fromOffscreen) {
+      if (
+        e !== CANCEL
+      ) {
 
-      cancelShow();
-
-      const t = ++token;
-      running = true;
-
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      const h = H();
-
-      try {
-
-        /* 1. walk on from the left */
-        if (fromOffscreen) {
-          actor.classList.add("ready");
-          place(-h * 0.7, 0, 1);
-          face(1);
-          pose("explainer");
-        }
-
-        say(null);
-        await walkTo(t, homeX(), 0, 1);
-
-        /* 2. wave hello */
-        face(1);
-        pose("welcome");
-        say("Choose your Martha", "Tap a glowing part of the brain");
-        await playOnce("hop", 1900, t);
-        await wait(1600, t);
-
-        /* 3. point at each part of the brain, walking up and down the room */
-        const tour = [
-          { key: "cra",       label: "CRA",       y: -0.05 * vh, s: 0.96 },
-          { key: "atrium",    label: "Atrium",    y: -0.12 * vh, s: 0.92 },
-          { key: "portfolio", label: "Portfolio", y:  0,         s: 1.0  }
-        ];
-
-        for (const stop of tour) {
-
-          const p = regionPoint(stop.key);
-          const x = clamp(p.x - h * 0.5, h * 0.4 + 14, vw - h * 0.62 - 12);
-
-          say(null);
-          await walkTo(t, x, stop.y, stop.s);
-
-          face(1);
-          pose("pointing");
-          flash(stop.key, true);
-          say(stop.label);
-          await wait(2300, t);
-          flash(stop.key, false);
-        }
-
-        /* 4. wander back, getting tired */
-        say(null);
-        await walkTo(t, homeX() + h * 0.15, 0.0, 1);
-
-        face(1);
-        pose("frustrated");
-        say("Wahala o. God abeg.");
-        await wait(2600, t);
-
-        /* 5. yawn */
-        say("Hmmmm...");
-        await playOnce("yawn", 3200, t, true);
-        say(null);
-        await wait(500, t);
-
-        /* 6. sleep: the room goes dark, only the brain lights stay on */
-        actor.classList.add("away");
-        setNight(true);
-
-        await new Promise((resolve) => { wakeResolve = resolve; });
-        wakeResolve = null;
-        if (t !== token) throw CANCEL;
-
-        /* 7. wake up */
-        await wakeUp(t);
-
-      } catch (e) {
-
-        if (e !== CANCEL) throw e;
-
-      } finally {
-
-        if (t === token) {
-          running = false;
-          scheduleIdle();
-        }
+        throw e;
 
       }
+
     }
 
-    async function wakeUp(t) {
+    finally {
+
+      if (
+        t === token
+      ) {
+
+        running =
+          false;
+
+
+        scheduleIdle();
+
+      }
+
+    }
+
+  }
+
+
+  async function wakeUp(t) {
+
+    setNight(false);
+
+
+    await wait(
+      1500,
+      t
+    );
+
+
+    goHome(false);
+
+
+    actor
+      .classList
+      .remove("away");
+
+
+    await wait(
+      700,
+      t
+    );
+
+
+    say(
+      "Choose your Martha",
+      "Tap a glowing part of the brain"
+    );
+
+  }
+
+
+  function cancelShow() {
+
+    token++;
+
+
+    stopWalk();
+
+
+    clearFlash();
+
+
+    if (
+      wakeResolve
+    ) {
+
+      wakeResolve();
+
+      wakeResolve =
+        null;
+
+    }
+
+
+    if (
+      asleep
+    ) {
 
       setNight(false);
 
-      /* let the lights come back up before she reappears */
-      await wait(1500, t);
-
-      goHome(false);
-      actor.classList.remove("away");
-
-      await wait(700, t);
-      say("Choose your Martha", "Tap a glowing part of the brain");
     }
 
-    /* stop whatever she is doing and get out of the way */
-    function cancelShow() {
 
-      token++;
+    actor
+      .classList
+      .remove("away");
 
-      stopWalk();
-      clearFlash();
 
-      if (wakeResolve) {
+    running =
+      false;
+
+  }
+
+
+  function attend() {
+
+    if (
+      asleep
+    ) {
+
+      if (
+        wakeResolve
+      ) {
+
         wakeResolve();
-        wakeResolve = null;
+
       }
 
-      if (asleep) {
-        setNight(false);
-      }
+      return;
 
-      actor.classList.remove("away");
-
-      running = false;
     }
 
-    /* the visitor did something: she stops and waits for them */
-    function attend() {
 
-      if (asleep) {
+    if (
+      running
+    ) {
 
-        /* wake gently; the show finishes the wake-up itself */
-        if (wakeResolve) wakeResolve();
-        return;
-      }
-
-      if (running) {
-        cancelShow();
-        pose("welcome");
-        face(1);
-        say("Choose your Martha", "Tap a glowing part of the brain");
-      }
-
-      scheduleIdle();
-    }
-
-    function scheduleIdle() {
-
-      clearTimeout(idleTimer);
-
-      if (reduceMotion) return;
-
-      idleTimer = setTimeout(() => {
-
-        if (cardOverlay.classList.contains("open")) {
-          scheduleIdle();
-          return;
-        }
-
-        show(false);
-
-      }, 45000);
-    }
-
-    function beginLife() {
-
-      if (reduceMotion) {
-        actor.classList.add("ready");
-        goHome(true);
-        return;
-      }
-
-      show(true);
-    }
-
-    /* any deliberate input ends the show; hover alone does not */
-    ["pointerdown", "keydown"].forEach((name) => {
-      window.addEventListener(name, attend, { passive: true });
-    });
-
-    /* keep her on screen if the window changes shape */
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        if (!entered) return;
-        cancelShow();
-        goHome(true);
-        actor.classList.add("ready");
-        scheduleIdle();
-      }, 250);
-    });
-
-    /* a card opening should also quiet her */
-    function quietForCard() {
       cancelShow();
-      pose("welcome");
-      say(null);
+
+
+      pose(
+        "welcome"
+      );
+
+
+      face(1);
+
+
+      say(
+        "Choose your Martha",
+        "Tap a glowing part of the brain"
+      );
+
     }
 
 
-    /* ======================================================
-       NO PAGE SCROLLING
-    ====================================================== */
+    scheduleIdle();
 
-    window.addEventListener(
-      "wheel",
-      (event) => {
+  }
 
-        event.preventDefault();
 
-      },
-      {
-        passive: false
+  function scheduleIdle() {
+
+    clearTimeout(
+      idleTimer
+    );
+
+
+    if (
+      reduceMotion
+    ) {
+
+      return;
+
+    }
+
+
+    idleTimer =
+      setTimeout(
+
+        () => {
+
+          if (
+            cardOverlay
+              .classList
+              .contains("open")
+          ) {
+
+            scheduleIdle();
+
+            return;
+
+          }
+
+
+          show(false);
+
+        },
+
+        45000
+
+      );
+
+  }
+
+
+  function beginLife() {
+
+    if (
+      reduceMotion
+    ) {
+
+      actor
+        .classList
+        .add("ready");
+
+
+      goHome(true);
+
+      return;
+
+    }
+
+
+    show(true);
+
+  }
+
+
+  [
+    "pointerdown",
+    "keydown"
+  ]
+  .forEach(
+    (name) => {
+
+      window
+        .addEventListener(
+          name,
+          attend,
+          {
+            passive:
+              true
+          }
+        );
+
+    }
+  );
+
+
+  let resizeTimer;
+
+
+  window
+    .addEventListener(
+      "resize",
+      () => {
+
+        clearTimeout(
+          resizeTimer
+        );
+
+
+        resizeTimer =
+          setTimeout(
+            () => {
+
+              if (
+                !entered
+              ) {
+
+                return;
+
+              }
+
+
+              cancelShow();
+
+
+              goHome(true);
+
+
+              actor
+                .classList
+                .add("ready");
+
+
+              scheduleIdle();
+
+            },
+
+            250
+          );
+
       }
     );
 
 
-    window.addEventListener(
-      "touchmove",
-      (event) => {
+  function quietForCard() {
 
-        /* the card scrolls on small screens; everything else stays put */
-        if (event.target.closest && event.target.closest(".card")) {
+    cancelShow();
+
+
+    pose(
+      "welcome"
+    );
+
+
+    say(null);
+
+  }
+
+
+  /* ======================================================
+     NO PAGE SCROLLING
+  ====================================================== */
+
+  window
+    .addEventListener(
+
+      "wheel",
+
+      (
+        event
+      ) => {
+
+        event
+          .preventDefault();
+
+      },
+
+      {
+        passive:
+          false
+      }
+
+    );
+
+
+  window
+    .addEventListener(
+
+      "touchmove",
+
+      (
+        event
+      ) => {
+
+        if (
+          event.target.closest
+          &&
+          event.target.closest(
+            ".card"
+          )
+        ) {
+
           return;
+
         }
 
-        event.preventDefault();
+
+        event
+          .preventDefault();
 
       },
+
       {
-        passive: false
+        passive:
+          false
       }
+
     );
 
-  </script>
+</script>
 
 </body>
 </html>
